@@ -181,6 +181,11 @@ const bool gui::DropDownList::getKeytime()
 	return false;
 }
 
+const unsigned short & gui::DropDownList::getActiveElementId() const
+{
+	return this->activeElement->getId();
+}
+
 //Functions
 void gui::DropDownList::updateKeytime(const float& dt)
 {
