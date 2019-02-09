@@ -81,6 +81,9 @@
     <ClCompile Include="TileMap.cpp">
       <Filter>Map</Filter>
     </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>Header Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h">
@@ -128,7 +131,7 @@
     <ClInclude Include="TileMap.h">
       <Filter>Map</Filter>
     </ClInclude>
-    <ClInclude Include="pchtest.h">
+    <ClInclude Include="stdafx.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

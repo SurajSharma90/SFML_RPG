@@ -1,3 +1,4 @@
+#include "stdafx.h"
 #include "EditorState.h"
 
 //Initializer functions
