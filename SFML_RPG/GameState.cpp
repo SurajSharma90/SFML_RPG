@@ -101,7 +101,7 @@ void GameState::update(const float& dt)
 	this->updateMousePositions();
 	this->updateKeytime(dt);
 	this->updateInput(dt);	
-
+	
 	if (!this->paused) //Unpaused update
 	{
 		this->updatePlayerInput(dt);
@@ -119,6 +119,8 @@ void GameState::render(sf::RenderTarget* target)
 {
 	if (!target)
 		target = this->window;
+
+	//this->map.render(*target);
 
 	this->player->render(*target);
 
