@@ -150,6 +150,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="AnimationComponent.cpp" />
+    <ClCompile Include="GraphicsSettings.cpp" />
     <ClCompile Include="Gui.cpp" />
     <ClCompile Include="EditorState.cpp" />
     <ClCompile Include="Entity.cpp" />
@@ -179,6 +180,7 @@
     <ClInclude Include="Game.h" />
     <ClInclude Include="GameState.h" />
     <ClInclude Include="Gui.h" />
+    <ClInclude Include="GraphicsSettings.h" />
     <ClInclude Include="HitboxComponent.h" />
     <ClInclude Include="MainMenuState.h" />
     <ClInclude Include="MovementComponent.h" />
