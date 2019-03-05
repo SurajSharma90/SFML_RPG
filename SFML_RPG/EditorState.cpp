@@ -50,9 +50,22 @@ void EditorState::initButtons()
 	
 }
 
+void EditorState::initGui()
+{
+	this->selectorRect.setSize(sf::Vector2f(this->stateData->gridSize, this->stateData->gridSize));
 
-EditorState::EditorState(sf::RenderWindow* window, std::map<std::string, int>* supportedKeys, std::stack<State*>* states)
-	: State(window, supportedKeys, states)
+	this->selectorRect.setFillColor(sf::Color::Transparent);
+	this->selectorRect.setOutlineThickness(1.f);
+	this->selectorRect.setOutlineColor(sf::Color::Green);
+}
+
+void EditorState::initTileMap()
+{
+	this->tileMap = new TileMap(this->stateData->gridSize, 10, 10);
+}
+
+EditorState::EditorState(StateData* state_data)
+	: State(state_data)
 {
 	this->initVariables();
 	this->initBackground();
@@ -60,6 +73,8 @@ EditorState::EditorState(sf::RenderWindow* window, std::map<std::string, int>* s
 	this->initKeybinds();
 	this->initPauseMenu();
 	this->initButtons();
+	this->initGui();
+	this->initTileMap();
 }
 
 EditorState::~EditorState()
@@ -71,6 +86,8 @@ EditorState::~EditorState()
 	}
 
 	delete this->pmenu;
+
+	delete this->tileMap;
 }
 
 //Functions
@@ -85,6 +102,15 @@ void EditorState::updateInput(const float & dt)
 	}
 }
 
+void EditorState::updateEditorInput(const float& dt)
+{
+	//Add a tile to the tilemap
+	if (sf::Mouse::isButtonPressed(sf::Mouse::Left) && this->getKeytime())
+	{
+		this->tileMap->addTile(this->mousePosGrid.x, this->mousePosGrid.y, 0);
+	}
+}
+
 void EditorState::updateButtons()
 {
 	/*Updates all the buttons in the state and handles their functionlaity.*/
@@ -93,6 +119,11 @@ void EditorState::updateButtons()
 	{
 		it.second->update(this->mousePosView);
 	}
+}
+
+void EditorState::updateGui()
+{
+	this->selectorRect.setPosition(this->mousePosGrid.x * this->stateData->gridSize, this->mousePosGrid.y * this->stateData->gridSize);
 }
 
 void EditorState::updatePauseMenuButtons()
@@ -108,8 +139,10 @@ void EditorState::update(const float& dt)
 	this->updateInput(dt);
 
 	if (!this->paused) //Unpaused
-	{
+	{	
 		this->updateButtons();
+		this->updateGui();
+		this->updateEditorInput(dt);
 	}
 	else //Paused
 	{
@@ -126,14 +159,20 @@ void EditorState::renderButtons(sf::RenderTarget& target)
 	}
 }
 
+void EditorState::renderGui(sf::RenderTarget& target)
+{
+	target.draw(this->selectorRect);
+}
+
 void EditorState::render(sf::RenderTarget* target)
 {
 	if (!target)
 		target = this->window;
 
 	this->renderButtons(*target);
+	this->renderGui(*target);
 
-	this->map.render(*target);
+	this->tileMap->render(*target);
 
 	if (this->paused) //Pause menu render
 	{
