@@ -4,7 +4,7 @@
 //Initializer functions
 void EditorState::initVariables()
 {
-
+	this->textureRect = sf::IntRect(0, 0, static_cast<int>(this->stateData->gridSize), static_cast<int>(this->stateData->gridSize));
 }
 
 void EditorState::initBackground()
@@ -18,6 +18,14 @@ void EditorState::initFonts()
 	{
 		throw("ERROR::EDITORSTATE::COULD NOT LOAD FONT");
 	}
+}
+
+void EditorState::initText()
+{
+	this->cursorText.setFont(this->font);
+	this->cursorText.setFillColor(sf::Color::White);
+	this->cursorText.setCharacterSize(12);
+	this->cursorText.setPosition(this->mousePosView.x, this->mousePosView.y - 50.f);
 }
 
 void EditorState::initKeybinds()
@@ -54,9 +62,12 @@ void EditorState::initGui()
 {
 	this->selectorRect.setSize(sf::Vector2f(this->stateData->gridSize, this->stateData->gridSize));
 
-	this->selectorRect.setFillColor(sf::Color::Transparent);
+	this->selectorRect.setFillColor(sf::Color(255, 255, 255, 150));
 	this->selectorRect.setOutlineThickness(1.f);
 	this->selectorRect.setOutlineColor(sf::Color::Green);
+
+	this->selectorRect.setTexture(this->tileMap->getTileSheet());
+	this->selectorRect.setTextureRect(this->textureRect);
 }
 
 void EditorState::initTileMap()
@@ -70,11 +81,12 @@ EditorState::EditorState(StateData* state_data)
 	this->initVariables();
 	this->initBackground();
 	this->initFonts();
+	this->initText();
 	this->initKeybinds();
 	this->initPauseMenu();
 	this->initButtons();
-	this->initGui();
 	this->initTileMap();
+	this->initGui();
 }
 
 EditorState::~EditorState()
@@ -107,12 +119,21 @@ void EditorState::updateEditorInput(const float& dt)
 	//Add a tile to the tilemap
 	if (sf::Mouse::isButtonPressed(sf::Mouse::Left) && this->getKeytime())
 	{
-		this->tileMap->addTile(this->mousePosGrid.x, this->mousePosGrid.y, 0);
+		this->tileMap->addTile(this->mousePosGrid.x, this->mousePosGrid.y, 0, this->textureRect);
 	}
 	//Remove a tile from the tilemap
 	else if (sf::Mouse::isButtonPressed(sf::Mouse::Right) && this->getKeytime())
 	{
 		this->tileMap->removeTile(this->mousePosGrid.x, this->mousePosGrid.y, 0);
+	}
+
+	//Change texture
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right) && this->getKeytime())
+	{
+		if (this->textureRect.left < 100)
+		{
+			this->textureRect.left += 100;
+		}
 	}
 }
 
@@ -128,7 +149,13 @@ void EditorState::updateButtons()
 
 void EditorState::updateGui()
 {
+	this->selectorRect.setTextureRect(this->textureRect);
 	this->selectorRect.setPosition(this->mousePosGrid.x * this->stateData->gridSize, this->mousePosGrid.y * this->stateData->gridSize);
+
+	this->cursorText.setPosition(this->mousePosView.x, this->mousePosView.y - 50.f);
+	std::stringstream ss;
+	ss << this->mousePosView.x << " " << this->mousePosView.y << "\n" << this->textureRect.left << " " << this->textureRect.top;
+	this->cursorText.setString(ss.str());
 }
 
 void EditorState::updatePauseMenuButtons()
@@ -167,6 +194,7 @@ void EditorState::renderButtons(sf::RenderTarget& target)
 void EditorState::renderGui(sf::RenderTarget& target)
 {
 	target.draw(this->selectorRect);
+	target.draw(this->cursorText);
 }
 
 void EditorState::render(sf::RenderTarget* target)
@@ -174,23 +202,14 @@ void EditorState::render(sf::RenderTarget* target)
 	if (!target)
 		target = this->window;
 
+	this->tileMap->render(*target);
+
 	this->renderButtons(*target);
 	this->renderGui(*target);
-
-	this->tileMap->render(*target);
 
 	if (this->paused) //Pause menu render
 	{
 		this->pmenu->render(*target);
 	}
-
-	//REMOVE LATER!!!
-	sf::Text mouseText;
-	mouseText.setPosition(this->mousePosView.x, this->mousePosView.y - 50);
-	mouseText.setFont(this->font);
-	mouseText.setCharacterSize(12);
-	std::stringstream ss;
-	ss << this->mousePosView.x << " " << this->mousePosView.y;
-	mouseText.setString(ss.str());
-	target->draw(mouseText);
+	
 }
