@@ -60,7 +60,7 @@ const bool PauseMenu::isButtonPressed(const std::string key)
 void PauseMenu::addButton(const std::string key, float y, const std::string text)
 {
 	float width = 250.f;
-	float height = 50.f;
+	float height = 65.f;
 	float x = this->container.getPosition().x + this->container.getSize().x / 2.f - width / 2.f;
 
 	this->buttons[key] = new gui::Button(

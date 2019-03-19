@@ -51,6 +51,7 @@ void EditorState::initPauseMenu()
 	this->pmenu = new PauseMenu(*this->window, this->font);
 
 	this->pmenu->addButton("QUIT", 800.f, "Quit");
+	this->pmenu->addButton("SAVE", 500.f, "Save");
 }
 
 void EditorState::initButtons()
@@ -83,7 +84,7 @@ void EditorState::initGui()
 
 void EditorState::initTileMap()
 {
-	this->tileMap = new TileMap(this->stateData->gridSize, 10, 10);
+	this->tileMap = new TileMap(this->stateData->gridSize, 10, 10, "Resources/Images/Tiles/tilesheet1.png");
 }
 
 EditorState::EditorState(StateData* state_data)
@@ -187,6 +188,9 @@ void EditorState::updatePauseMenuButtons()
 {
 	if (this->pmenu->isButtonPressed("QUIT"))
 		this->endState();
+
+	if (this->pmenu->isButtonPressed("SAVE"))
+		this->tileMap->saveToFile("text.slmp");
 }
 
 void EditorState::update(const float& dt)
