@@ -12,8 +12,13 @@ void TileMap::clear()
 				delete this->map[x][y][z];
 				this->map[x][y][z] = NULL;
 			}
+			this->map[x][y].clear();
 		}
+		this->map[x].clear();
 	}
+	this->map.clear();
+
+	//std::cout << this->map.size() << "\n";
 }
 
 TileMap::TileMap(float gridSize, unsigned width, unsigned height, std::string texture_file)
@@ -55,7 +60,7 @@ const sf::Texture * TileMap::getTileSheet() const
 }
 
 //Functions
-void TileMap::addTile(const unsigned x, const unsigned y, const unsigned z, const sf::IntRect& texture_rect)
+void TileMap::addTile(const unsigned x, const unsigned y, const unsigned z, const sf::IntRect& texture_rect, const bool& collision, const short& type)
 {
 	/* Take three indicies from the mouse position in the grid and add a tile to that position if the internal tilemap array allows it. */
 
@@ -66,7 +71,7 @@ void TileMap::addTile(const unsigned x, const unsigned y, const unsigned z, cons
 		if (this->map[x][y][z] == NULL)
 		{
 			/* OK To add tile. */
-			this->map[x][y][z] = new Tile(x * this->gridSizeF, y * this->gridSizeF, this->gridSizeF, this->tileSheet, texture_rect);
+			this->map[x][y][z] = new Tile(x, y, this->gridSizeF, this->tileSheet, texture_rect, collision, type);
 			std::cout << "DEGBUG: ADDED TILE!" << "\n";
 		}	
 	}
@@ -101,7 +106,10 @@ void TileMap::saveToFile(const std::string file_name)
 	texture file
 
 	All tiles:
-	gridPos x y layer, Texture rect x y, collision, type
+	gridPos x y layer 
+	Texture rect x y 
+	collision 
+	type
 	*/
 
 	std::ofstream out_file;
@@ -122,7 +130,9 @@ void TileMap::saveToFile(const std::string file_name)
 				for (size_t z = 0; z < this->layers; z++)
 				{
 					if(this->map[x][y][z])
-						out_file << x << " " << y << " " << z << " " << this->map[x][y][z]->getAsString() << " "; //MAKE SURE THIS LAST SPACE IS NOT SAVED!!!!
+						out_file << x << " " << y << " " << z << " " << 
+						this->map[x][y][z]->getAsString() 
+						<< " "; //MAKE SURE THIS LAST SPACE IS NOT SAVED!!!!
 				}
 			}
 		}
@@ -188,7 +198,14 @@ void TileMap::loadFromFile(const std::string file_name)
 		//Load all tiles
 		while (in_file >> x >> y >> z >> trX >> trY >> collision >> type)
 		{
-			//this->map[x][y][z] = new Tile()
+			this->map[x][y][z] = new Tile(
+				x, y,
+				this->gridSizeF, 
+				this->tileSheet, 
+				sf::IntRect(trX, trY, this->gridSizeU, this->gridSizeU), 
+				collision, 
+				type
+			);
 		}
 	}
 	else
