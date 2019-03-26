@@ -29,6 +29,7 @@ private:
 	TileMap* tileMap;
 
 	//Functions
+	void initDeferredRender();
 	void initView();
 	void initKeybinds();
 	void initFonts();
@@ -46,6 +47,7 @@ public:
 	void updateInput(const float& dt);
 	void updatePlayerInput(const float& dt);
 	void updatePauseMenuButtons();
+	void updateTileMap(const float& dt);
 	void update(const float& dt);
 	void render(sf::RenderTarget* target = NULL);
 };
