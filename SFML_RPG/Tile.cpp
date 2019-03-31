@@ -38,7 +38,17 @@ const sf::Vector2f & Tile::getPosition() const
 	return this->shape.getPosition();
 }
 
+const sf::FloatRect Tile::getGlobalBounds() const
+{
+	return this->shape.getGlobalBounds();
+}
+
 //Functions
+const bool Tile::intersects(const sf::FloatRect bounds) const
+{
+	return this->shape.getGlobalBounds().intersects(bounds);
+}
+
 const std::string Tile::getAsString() const
 {
 	std::stringstream ss;
