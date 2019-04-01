@@ -28,6 +28,11 @@ Tile::~Tile()
 }
 
 //Accessors
+const short & Tile::getType() const
+{
+	return this->type;
+}
+
 const bool & Tile::getCollision() const
 {
 	return this->collision;
