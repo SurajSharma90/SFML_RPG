@@ -32,7 +32,7 @@ public:
 	void updateAnimation(const float& dt);
 	void update(const float& dt);
 
-	void render(sf::RenderTarget& target);
+	void render(sf::RenderTarget& target, const bool show_hitbox = false);
 };
 
 #endif
