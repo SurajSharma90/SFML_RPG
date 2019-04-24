@@ -308,7 +308,7 @@ void EditorState::render(sf::RenderTarget* target)
 		target = this->window;
 
 	target->setView(this->view);
-	this->tileMap->render(*target, this->mousePosGrid, true);
+	this->tileMap->render(*target, this->mousePosGrid, NULL, sf::Vector2f(), true);
 	this->tileMap->renderDeferred(*target);
 
 	target->setView(this->window->getDefaultView());

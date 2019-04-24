@@ -153,4 +153,12 @@
       <Filter>GUI</Filter>
     </ClInclude>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="fragment_shader.frag">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="vertex_shader.vert">
+      <Filter>Resource Files</Filter>
+    </None>
+  </ItemGroup>
 </Project>
