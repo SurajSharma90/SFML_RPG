@@ -140,17 +140,17 @@ void GameState::updateView(const float & dt)
 	{
 		this->view.setCenter(0.f + this->view.getSize().x / 2.f, this->view.getCenter().y);
 	}
-	else if (this->view.getCenter().x + this->view.getSize().x / 2.f > 3000.f)
+	else if (this->view.getCenter().x + this->view.getSize().x / 2.f > this->tileMap->getMaxSizeF().x)
 	{
-		this->view.setCenter(3000.f - this->view.getSize().x/2.f, this->view.getCenter().y);
+		this->view.setCenter(this->tileMap->getMaxSizeF().x - this->view.getSize().x/2.f, this->view.getCenter().y);
 	}
 	if (this->view.getCenter().y - this->view.getSize().y / 2.f < 0.f)
 	{
 		this->view.setCenter(this->view.getCenter().x, 0.f + this->view.getSize().y / 2.f);
 	}
-	else if (this->view.getCenter().y + this->view.getSize().y / 2.f > 3000.f)
+	else if (this->view.getCenter().y + this->view.getSize().y / 2.f > this->tileMap->getMaxSizeF().y)
 	{
-		this->view.setCenter(this->view.getCenter().x, 3000.f - this->view.getSize().y / 2.f);
+		this->view.setCenter(this->view.getCenter().x, this->tileMap->getMaxSizeF().y - this->view.getSize().y / 2.f);
 	}
 
 	this->viewGridPosition.x = static_cast<int>(this->view.getCenter().x) / static_cast<int>(this->stateData->gridSize);
