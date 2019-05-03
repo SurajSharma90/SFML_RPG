@@ -35,6 +35,7 @@ public:
 	virtual ~TileMap();
 
 	//Accessors
+	const bool tileEmpty(const int x, const int y, const int z) const;
 	const sf::Texture* getTileSheet() const;
 	const int getLayerSize(const int x, const int y, const int layer) const;
 	const sf::Vector2i& getMaxSizeGrid() const;
