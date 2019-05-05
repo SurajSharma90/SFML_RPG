@@ -3,7 +3,7 @@
 
 Item::Item()
 {
-	std::cout << "Item" << "\n";
+	
 }
 
 Item::~Item()
