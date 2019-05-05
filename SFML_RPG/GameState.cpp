@@ -99,8 +99,7 @@ void GameState::initPlayerGUI()
 
 void GameState::initTileMap()
 {
-	this->tileMap = new TileMap(this->stateData->gridSize, 100, 100, "Resources/Images/Tiles/tilesheet3.png");
-	this->tileMap->loadFromFile("text.slmp");
+	this->tileMap = new TileMap("text.slmp");
 }
 
 //Constructors / Destructors
@@ -118,6 +117,8 @@ GameState::GameState(StateData* state_data)
 	this->initPlayers();
 	this->initPlayerGUI();
 	this->initTileMap();
+
+	Bow bow;
 }
 
 GameState::~GameState()

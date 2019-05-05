@@ -31,6 +31,15 @@
     <Filter Include="Map">
       <UniqueIdentifier>{38d4c475-e1f0-44ee-9210-16d988b1f564}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Item">
+      <UniqueIdentifier>{91d97431-994d-4cca-a5ef-d6369552d797}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Item\MeleeWeapon">
+      <UniqueIdentifier>{0f1680c2-336d-430e-9685-acb617189d61}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Item\RangedWeapon">
+      <UniqueIdentifier>{a342622c-5e89-4c09-99d9-247266e60bb8}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -93,6 +102,21 @@
     <ClCompile Include="PlayerGUI.cpp">
       <Filter>GUI</Filter>
     </ClCompile>
+    <ClCompile Include="Item.cpp">
+      <Filter>Item</Filter>
+    </ClCompile>
+    <ClCompile Include="MeleeWeapon.cpp">
+      <Filter>Item\MeleeWeapon</Filter>
+    </ClCompile>
+    <ClCompile Include="Sword.cpp">
+      <Filter>Item\MeleeWeapon</Filter>
+    </ClCompile>
+    <ClCompile Include="RangedWeapon.cpp">
+      <Filter>Item\RangedWeapon</Filter>
+    </ClCompile>
+    <ClCompile Include="Bow.cpp">
+      <Filter>Item\RangedWeapon</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h">
@@ -151,6 +175,21 @@
     </ClInclude>
     <ClInclude Include="PlayerGUI.h">
       <Filter>GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="Item.h">
+      <Filter>Item</Filter>
+    </ClInclude>
+    <ClInclude Include="MeleeWeapon.h">
+      <Filter>Item\MeleeWeapon</Filter>
+    </ClInclude>
+    <ClInclude Include="Sword.h">
+      <Filter>Item\MeleeWeapon</Filter>
+    </ClInclude>
+    <ClInclude Include="RangedWeapon.h">
+      <Filter>Item\RangedWeapon</Filter>
+    </ClInclude>
+    <ClInclude Include="Bow.h">
+      <Filter>Item\RangedWeapon</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
