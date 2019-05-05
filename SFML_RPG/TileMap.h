@@ -32,6 +32,7 @@ private:
 
 public:
 	TileMap(float gridSize, int width, int height, std::string texture_file);
+	TileMap(const std::string file_name);
 	virtual ~TileMap();
 
 	//Accessors
