@@ -89,7 +89,7 @@ void GameState::initShaders()
 
 void GameState::initPlayers()
 {
-	this->player = new Player(0, 0, this->textures["PLAYER_SHEET"]);
+	this->player = new Player(220, 220, this->textures["PLAYER_SHEET"]);
 }
 
 void GameState::initPlayerGUI()

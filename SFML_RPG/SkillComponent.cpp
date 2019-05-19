@@ -3,9 +3,9 @@
 
 SkillComponent::SkillComponent()
 {
-	this->skills.push_back(Skill(SKILLS::HEALTH));
-	this->skills.push_back(Skill(SKILLS::ATTACK));
-	this->skills.push_back(Skill(SKILLS::ACCURACY));
+	this->skills.push_back(Skill(SKILLS::CONSTITUTION));
+	this->skills.push_back(Skill(SKILLS::MELEE_COMBAT));
+	this->skills.push_back(Skill(SKILLS::RANGED_COMBAT));
 	this->skills.push_back(Skill(SKILLS::ENDURANCE));
 }
 

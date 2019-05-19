@@ -1,7 +1,7 @@
 #ifndef SKILLCOMPONENT_H
 #define SKILLCOMPONENT_H
 
-enum SKILLS { HEALTH = 0, ATTACK, ACCURACY, ENDURANCE };
+enum SKILLS { CONSTITUTION = 0, MELEE_COMBAT, RANGED_COMBAT, ENDURANCE };
 
 class SkillComponent
 {
@@ -42,7 +42,7 @@ private:
 		void gainExp(const int exp) 
 		{ 
 			this->exp += exp; 
-			this->updateLevel(); 
+			this->updateLevel();
 		}
 
 		void loseExp(const int exp)
