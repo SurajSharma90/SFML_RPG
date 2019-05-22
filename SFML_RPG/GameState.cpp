@@ -233,6 +233,7 @@ void GameState::update(const float& dt)
 
 		this->testEnemy->update(dt, this->mousePosView);
 		this->testEnemy->move(1.f, 0.f, dt);
+
 	}
 	else //Paused update
 	{
