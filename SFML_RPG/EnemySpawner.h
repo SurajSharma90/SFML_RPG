@@ -1,23 +1,27 @@
 #ifndef ENEMYSPAWNER_H
 #define ENEMYSPAWNER_H
 
-class EnemySpawner
+#include "Tile.h"
+
+class Tile;
+
+class EnemySpawner 
+	: public Tile
 {
 private:
-	sf::RectangleShape shape;
-
-	sf::Vector2i gridPosition;
-	int type;
-	int amount;
-	int timeToSpawn;
-	float maxDistance;
+	int enemyType;
+	int enemyAmount;
+	int enemyTimeToSpawn;
+	float enemyMaxDistance;
 
 public:
-	EnemySpawner(sf::Vector2i grid_position, float grid_size, int type, int amount, int time_to_spawn, float max_distance);
+	EnemySpawner(int grid_x, int grid_y, float gridSizeF, 
+		const sf::Texture& texture, const sf::IntRect& texture_rect,
+		float grid_size, int enemy_type, int enemy_amount, int enemy_time_to_spawn, float enemy_max_distance);
 	virtual ~EnemySpawner();
 
-	void update(const float& dt);
-	void render(sf::RenderTarget& target);
+	void update();
+	void render(sf::RenderTarget & target, sf::Shader* shader = NULL, const sf::Vector2f player_position = sf::Vector2f());
 };
 
 #endif //!ENEMYSPAWNER_H
