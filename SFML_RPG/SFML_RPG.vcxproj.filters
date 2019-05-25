@@ -22,9 +22,6 @@
     <Filter Include="Components">
       <UniqueIdentifier>{808eb4a8-4324-4cfe-92bc-6eb729356194}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Tile">
-      <UniqueIdentifier>{9f59f026-6a84-4082-93c7-0eee82c2a89b}</UniqueIdentifier>
-    </Filter>
     <Filter Include="GUI">
       <UniqueIdentifier>{c1087f27-be5f-438b-b49e-6b93b60ec9c8}</UniqueIdentifier>
     </Filter>
@@ -39,6 +36,9 @@
     </Filter>
     <Filter Include="Item\RangedWeapon">
       <UniqueIdentifier>{a342622c-5e89-4c09-99d9-247266e60bb8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Map\Tile">
+      <UniqueIdentifier>{9f59f026-6a84-4082-93c7-0eee82c2a89b}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -76,7 +76,7 @@
       <Filter>Components</Filter>
     </ClCompile>
     <ClCompile Include="Tile.cpp">
-      <Filter>Tile</Filter>
+      <Filter>Map\Tile</Filter>
     </ClCompile>
     <ClCompile Include="PauseMenu.cpp">
       <Filter>GUI</Filter>
@@ -124,7 +124,7 @@
       <Filter>Entities</Filter>
     </ClCompile>
     <ClCompile Include="EnemySpawner.cpp">
-      <Filter>Tile</Filter>
+      <Filter>Map\Tile</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -159,7 +159,7 @@
       <Filter>Components</Filter>
     </ClInclude>
     <ClInclude Include="Tile.h">
-      <Filter>Tile</Filter>
+      <Filter>Map\Tile</Filter>
     </ClInclude>
     <ClInclude Include="PauseMenu.h">
       <Filter>GUI</Filter>
@@ -207,7 +207,7 @@
       <Filter>Entities</Filter>
     </ClInclude>
     <ClInclude Include="EnemySpawner.h">
-      <Filter>Tile</Filter>
+      <Filter>Map\Tile</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
