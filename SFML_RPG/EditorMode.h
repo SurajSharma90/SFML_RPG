@@ -2,18 +2,25 @@
 #define EDITORMODE_H
 
 #include "State.h"
+#include "TileMap.h"
+#include "Gui.h"
 
 class State;
 class StateData;
+class TileMap;
+class Tile;
 
 class EditorMode
 {
 private:
-	StateData* stateData;
 
+protected:
+	StateData* stateData;
+	TileMap* tileMap;
+	sf::Font* font;
 
 public:
-	EditorMode(StateData* state_data);
+	EditorMode(StateData* state_data, TileMap* tile_map, sf::Font* font);
 	virtual ~EditorMode();
 
 	//Functions
