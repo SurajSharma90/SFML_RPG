@@ -5,11 +5,16 @@
 #include "Gui.h"
 #include "PauseMenu.h"
 #include "TileMap.h"
+#include "EditorMode.h"
 
 class State;
+class StateData;
 class Gui;
 class PauseMenu;
 class TileMap;
+class EditorMode;
+
+enum EditorModes {DEFAULT = 0, ENEMY};
 
 class EditorState :
 	public State
