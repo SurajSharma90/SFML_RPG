@@ -52,7 +52,7 @@ public:
 	virtual void update(const float& dt) = 0;
 
 	virtual void renderGui(sf::RenderTarget& target) = 0;
-	virtual void render(sf::RenderTarget* target = NULL) = 0;
+	virtual void render(sf::RenderTarget& target) = 0;
 };
 
 #endif //!EDITORMODE_H

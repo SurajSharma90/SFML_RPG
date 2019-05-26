@@ -5,11 +5,11 @@ void TileMap::clear()
 {
 	if (!this->map.empty())
 	{
-		for (int x = 0; x < this->maxSizeWorldGrid.x; x++)
+		for (int x = 0; x < this->map.size(); x++)
 		{
-			for (int y = 0; y < this->maxSizeWorldGrid.y; y++)
+			for (int y = 0; y < this->map[x].size(); y++)
 			{
-				for (int z = 0; z < this->layers; z++)
+				for (int z = 0; z < this->map[x][y].size(); z++)
 				{
 					for (size_t k = 0; k < this->map[x][y][z].size(); k++)
 					{
