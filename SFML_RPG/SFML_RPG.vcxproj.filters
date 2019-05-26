@@ -135,6 +135,9 @@
     <ClCompile Include="DefaultEditorMode.cpp">
       <Filter>States\Editor Modes</Filter>
     </ClCompile>
+    <ClCompile Include="EnemyEditorMode.cpp">
+      <Filter>States\Editor Modes</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h">
@@ -222,6 +225,9 @@
       <Filter>States\Editor Modes</Filter>
     </ClInclude>
     <ClInclude Include="DefaultEditorMode.h">
+      <Filter>States\Editor Modes</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyEditorMode.h">
       <Filter>States\Editor Modes</Filter>
     </ClInclude>
   </ItemGroup>

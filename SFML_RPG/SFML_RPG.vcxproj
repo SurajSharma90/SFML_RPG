@@ -155,6 +155,7 @@
     <ClCompile Include="DefaultEditorMode.cpp" />
     <ClCompile Include="EditorMode.cpp" />
     <ClCompile Include="Enemy.cpp" />
+    <ClCompile Include="EnemyEditorMode.cpp" />
     <ClCompile Include="EnemySpawner.cpp" />
     <ClCompile Include="GraphicsSettings.cpp" />
     <ClCompile Include="Gui.cpp" />
@@ -193,6 +194,7 @@
     <ClInclude Include="EditorMode.h" />
     <ClInclude Include="EditorState.h" />
     <ClInclude Include="Enemy.h" />
+    <ClInclude Include="EnemyEditorMode.h" />
     <ClInclude Include="EnemySpawner.h" />
     <ClInclude Include="Entity.h" />
     <ClInclude Include="Game.h" />

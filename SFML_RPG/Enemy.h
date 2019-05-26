@@ -12,14 +12,14 @@ class Enemy :
 {
 private:
 	//Variables
-	EnemySpawner& enemySpawner;
+	//EnemySpawner& enemySpawner;
 
 	//Initializer functions
 	void initVariables();
 	void initAnimations();
 
 public:
-	Enemy(EnemySpawner& enemy_spawner, float x, float y, sf::Texture& texture_sheet);
+	Enemy(float x, float y, sf::Texture& texture_sheet);
 	virtual ~Enemy();
 
 	//Functions
