@@ -132,6 +132,7 @@ void DefaultEditorMode::updateGui(const float & dt)
 	}
 
 	this->cursorText.setPosition(this->editorStateData->mousePosView->x + 100.f, this->editorStateData->mousePosView->y - 50.f);
+	
 	std::stringstream ss;
 	ss << this->editorStateData->mousePosView->x << " " << this->editorStateData->mousePosView->y <<
 		"\n" << this->editorStateData->mousePosGrid->x << " " << this->editorStateData->mousePosGrid->y <<
@@ -140,7 +141,6 @@ void DefaultEditorMode::updateGui(const float & dt)
 		"\n" << "Type: " << this->type <<
 		"\n" << "Tiles: " << this->tileMap->getLayerSize(this->editorStateData->mousePosGrid->x, this->editorStateData->mousePosGrid->y, this->layer) <<
 		"\n" << "Tile lock: " << this->tileAddLock;
-
 
 	this->cursorText.setString(ss.str());
 }
