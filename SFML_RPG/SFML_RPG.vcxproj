@@ -192,6 +192,7 @@
     <ClInclude Include="Bow.h" />
     <ClInclude Include="DefaultEditorMode.h" />
     <ClInclude Include="EditorMode.h" />
+    <ClInclude Include="EditorModes.h" />
     <ClInclude Include="EditorState.h" />
     <ClInclude Include="Enemy.h" />
     <ClInclude Include="EnemyEditorMode.h" />
