@@ -7,8 +7,9 @@ Tile::Tile()
 	this->type = 0;
 }
 
-Tile::Tile(int grid_x, int grid_y, float gridSizeF, const sf::Texture& texture, const sf::IntRect& texture_rect,
-	bool collision, short type)
+Tile::Tile(short type, int grid_x, int grid_y, float gridSizeF, 
+	const sf::Texture& texture, const sf::IntRect& texture_rect,
+	bool collision)
 {
 	//this->shape.setOutlineThickness(1.f);
 	//this->shape.setOutlineColor(sf::Color::Black);
@@ -56,7 +57,7 @@ const std::string Tile::getAsString() const
 {
 	std::stringstream ss;
 
-	ss << this->shape.getTextureRect().left << " " << this->shape.getTextureRect().top << " " << this->collision << " " << this->type;
+	ss << this->type << " " << this->shape.getTextureRect().left << " " << this->shape.getTextureRect().top << " " << this->collision;
 
 	return ss.str();
 }

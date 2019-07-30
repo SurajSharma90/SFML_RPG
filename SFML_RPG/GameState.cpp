@@ -123,11 +123,11 @@ GameState::GameState(StateData* state_data)
 	this->initPlayerGUI();
 	this->initTileMap();
 
-	this->activeEnemies.push_back(new Enemy(200.f, 100.f, this->textures["RAT1_SHEET"]));
-	this->activeEnemies.push_back(new Enemy(500.f, 200.f, this->textures["RAT1_SHEET"]));
-	this->activeEnemies.push_back(new Enemy(600.f, 300.f, this->textures["RAT1_SHEET"]));
-	this->activeEnemies.push_back(new Enemy(400.f, 500.f, this->textures["RAT1_SHEET"]));
-	this->activeEnemies.push_back(new Enemy(200.f, 400.f, this->textures["RAT1_SHEET"]));
+	this->activeEnemies.push_back(new Rat(200.f, 100.f, this->textures["RAT1_SHEET"]));
+	this->activeEnemies.push_back(new Rat(500.f, 200.f, this->textures["RAT1_SHEET"]));
+	this->activeEnemies.push_back(new Rat(600.f, 300.f, this->textures["RAT1_SHEET"]));
+	this->activeEnemies.push_back(new Rat(400.f, 500.f, this->textures["RAT1_SHEET"]));
+	this->activeEnemies.push_back(new Rat(200.f, 400.f, this->textures["RAT1_SHEET"]));
 	
 }
 

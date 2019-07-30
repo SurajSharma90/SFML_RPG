@@ -3,9 +3,11 @@
 
 #include "Tile.h"
 #include "Entity.h"
+#include "EnemySpawner.h"
 
 class Tile;
 class Entity;
+class EnemySpawner;
 
 class TileMap
 {

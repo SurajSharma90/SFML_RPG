@@ -172,6 +172,7 @@
     <ClCompile Include="PauseMenu.cpp" />
     <ClCompile Include="PlayerGUI.cpp" />
     <ClCompile Include="RangedWeapon.cpp" />
+    <ClCompile Include="Rat.cpp" />
     <ClCompile Include="SkillComponent.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
@@ -194,6 +195,7 @@
     <ClInclude Include="EditorMode.h" />
     <ClInclude Include="EditorModes.h" />
     <ClInclude Include="EditorState.h" />
+    <ClInclude Include="Enemies_include.h" />
     <ClInclude Include="Enemy.h" />
     <ClInclude Include="EnemyEditorMode.h" />
     <ClInclude Include="EnemySpawner.h" />
@@ -210,6 +212,7 @@
     <ClInclude Include="PauseMenu.h" />
     <ClInclude Include="PlayerGUI.h" />
     <ClInclude Include="RangedWeapon.h" />
+    <ClInclude Include="Rat.h" />
     <ClInclude Include="SkillComponent.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="Player.h" />
