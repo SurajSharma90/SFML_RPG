@@ -1,9 +1,9 @@
 #ifndef TILEMAP_H
 #define TILEMAP_H
 
-#include "Tile.h"
 #include "Entity.h"
 #include "EnemySpawner.h"
+#include "RegularTile.h"
 
 class Tile;
 class Entity;

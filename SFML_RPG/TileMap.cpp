@@ -143,7 +143,11 @@ void TileMap::addTile(const int x, const int y, const int z, const sf::IntRect& 
 		z < this->layers && z >= 0)
 	{
 		/* OK To add tile. */
-		this->map[x][y][z].push_back(new Tile(type, x, y, this->gridSizeF, this->tileSheet, texture_rect, collision));
+		if(type == TileTypes::DEFAULT)
+			this->map[x][y][z].push_back(new RegularTile(type, x, y, this->gridSizeF, this->tileSheet, texture_rect, collision));
+		else if(type == TileTypes::ENEMYSPAWNER)
+			this->map[x][y][z].push_back(new EnemySpawner(x, y, this->gridSizeF, this->tileSheet, texture_rect, 0, 0, 0, 0));
+
 		std::cout << "DEGBUG: ADDED TILE!" << "\n";	
 	}
 }
@@ -219,7 +223,7 @@ void TileMap::saveToFile(const std::string file_name)
 						{
 							out_file << x << " " << y << " " << z << " " <<
 								this->map[x][y][z][k]->getAsString()
-								<< " "; //MAKE SURE THIS LAST SPACE IS NOT SAVED!!!!
+								<< " ";
 						}		
 					}
 				}
@@ -292,10 +296,12 @@ void TileMap::loadFromFile(const std::string file_name)
 			if (type == TileTypes::ENEMYSPAWNER)
 			{
 				//amount, time, max dist
-				int enemy_type, enemy_am, enemy_tts, enemy_md;
+				int enemy_type = 0;
+				int	enemy_am = 0;
+				int	enemy_tts = 0;
+				int	enemy_md = 0;
 
-				in_file >> trX >> trY
-					>> enemy_type >> enemy_am >> enemy_tts >> enemy_md;
+				in_file >> trX >> trY >> enemy_type >> enemy_am >> enemy_tts >> enemy_md;
 				
 				this->map[x][y][z].push_back(
 					new EnemySpawner(
@@ -315,7 +321,7 @@ void TileMap::loadFromFile(const std::string file_name)
 				in_file >> trX >> trY >> collision;
 
 				this->map[x][y][z].push_back(
-					new Tile(
+					new RegularTile(
 						type,
 						x, y,
 						this->gridSizeF,
