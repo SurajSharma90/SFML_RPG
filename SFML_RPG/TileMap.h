@@ -2,7 +2,7 @@
 #define TILEMAP_H
 
 #include "Entity.h"
-#include "EnemySpawner.h"
+#include "EnemySpawnerTile.h"
 #include "RegularTile.h"
 
 class Tile;
@@ -46,6 +46,8 @@ public:
 
 	//Functions
 	void addTile(const int x, const int y, const int z, const sf::IntRect& texture_rect, const bool& collision, const short& type);
+	void addTile(const int x, const int y, const int z, const sf::IntRect & texture_rect,
+		const int enemy_type, const int enemy_amount, const int enemy_tts, const int enemy_md);
 	void removeTile(const int x, const int y, const int z, const int type = -1);
 	void saveToFile(const std::string file_name);
 	void loadFromFile(const std::string file_name);

@@ -2,7 +2,7 @@
 #define ENEMYEDITORMODE_H
 
 #include "EditorMode.h"
-#include "EnemySpawner.h"
+#include "EnemySpawnerTile.h"
 
 class State;
 class StateData;

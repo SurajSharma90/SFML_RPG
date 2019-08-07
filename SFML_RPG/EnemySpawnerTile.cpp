@@ -1,7 +1,7 @@
 #include "stdafx.h"
-#include "EnemySpawner.h"
+#include "EnemySpawnerTile.h"
 
-EnemySpawner::EnemySpawner(int grid_x, int grid_y, float gridSizeF, 
+EnemySpawnerTile::EnemySpawnerTile(int grid_x, int grid_y, float gridSizeF,
 	const sf::Texture& texture, const sf::IntRect& texture_rect,
 	int enemy_type, int enemy_amount, int enemy_time_to_spawn, float enemy_max_distance)
 
@@ -13,12 +13,12 @@ EnemySpawner::EnemySpawner(int grid_x, int grid_y, float gridSizeF,
 	this->enemyMaxDistance = enemy_max_distance;
 }
 
-EnemySpawner::~EnemySpawner()
+EnemySpawnerTile::~EnemySpawnerTile()
 {
 
 }
 
-const std::string EnemySpawner::getAsString() const
+const std::string EnemySpawnerTile::getAsString() const
 {
 	std::stringstream ss;
 
@@ -41,12 +41,12 @@ const std::string EnemySpawner::getAsString() const
 }
 
 //Functions
-void EnemySpawner::update()
+void EnemySpawnerTile::update()
 {
 
 }
 
-void EnemySpawner::render(sf::RenderTarget & target, sf::Shader* shader, const sf::Vector2f player_position)
+void EnemySpawnerTile::render(sf::RenderTarget & target, sf::Shader* shader, const sf::Vector2f player_position)
 {
 	if (shader)
 	{
