@@ -53,6 +53,9 @@ public:
 	void loadFromFile(const std::string file_name);
 	const bool checkType(const int x, const int y, const int z, const int type) const;
 
+	void updateWorldBoundsCollision(Entity* entity, const float& dt);
+	void updateTileCollision(Entity* entity, const float& dt);
+	void updateTiles(Entity* entity, const float& dt);
 	void update(Entity* entity, const float& dt);
 
 	void render(
