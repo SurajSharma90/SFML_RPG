@@ -7,7 +7,6 @@
 #include "PlayerGUI.h"
 #include "Sword.h"
 #include "Bow.h"
-#include "Enemies_include.h"
 
 class PauseMenu;
 class Player;
