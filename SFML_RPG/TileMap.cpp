@@ -472,8 +472,7 @@ void TileMap::updateTileCollision(Entity * entity, const float & dt)
 	}
 }
 
-void TileMap::updateTiles(Entity * entity, const float & dt, 
-	std::vector<Enemy*>& activeEnemies, std::map<std::string, sf::Texture>& textures)
+void TileMap::updateTiles(Entity * entity, const float & dt, EnemySystem& enemySystem)
 {
 	//TILES
 	this->layer = 0;
@@ -517,7 +516,7 @@ void TileMap::updateTiles(Entity * entity, const float & dt,
 					{
 						if (!es->getSpawned())
 						{
-							activeEnemies.push_back(new Rat(x*this->gridSizeF, y*this->gridSizeF, textures["RAT1_SHEET"]));
+							enemySystem.createEnemy(RAT, x*this->gridSizeF, y*this->gridSizeF);
 							es->setSpawned(true);
 						}	
 					}
