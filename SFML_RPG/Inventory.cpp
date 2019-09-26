@@ -4,25 +4,17 @@
 //Private functions
 void Inventory::initialize()
 {
-	this->capacity = 10;
 	this->nrOfItems = 0;
 	this->itemArray = new Item*[this->capacity];
 
 	this->nullify();
 }
 
-
-
-void Inventory::expand()
-{
-
-}
-
 void Inventory::nullify(const unsigned from)
 {
 	for (size_t i = from; i < this->capacity; i++)
 	{
-		this->itemArray = nullptr;
+		this->itemArray[i] = nullptr;
 	}
 }
 
@@ -37,12 +29,67 @@ void Inventory::freeMemory()
 }
 
 //Constructors & Destructors
-Inventory::Inventory()
+Inventory::Inventory(unsigned capacity)
 {
+	this->capacity = capacity;
 
+	this->initialize();
 }
 
 Inventory::~Inventory()
 {
+	this->freeMemory();
+}
 
+//Accessors
+
+const unsigned & Inventory::size() const
+{
+	return this->nrOfItems;
+}
+
+const unsigned & Inventory::maxSize() const
+{
+	return this->capacity;
+}
+
+//Modifiers
+
+//Functions
+
+void Inventory::clear()
+{
+	for (size_t i = 0; i < this->nrOfItems; i++)
+	{
+		delete this->itemArray[i];
+	}
+
+	this->nrOfItems = 0;
+
+	this->nullify();
+}
+
+const bool Inventory::empty() const
+{
+	return this->nrOfItems == 0;
+}
+
+const bool Inventory::add(Item * item)
+{
+	return false;
+}
+
+const bool Inventory::remove(const unsigned index)
+{
+	return false;
+}
+
+const bool Inventory::saveToFile(const std::string fileName)
+{
+	return false;
+}
+
+const bool Inventory::loadFromFile(const std::string fileName)
+{
+	return false;
 }
