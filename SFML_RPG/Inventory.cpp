@@ -76,11 +76,29 @@ const bool Inventory::empty() const
 
 const bool Inventory::add(Item * item)
 {
+	if (this->nrOfItems < this->capacity)
+	{
+		this->itemArray[this->nrOfItems++] = item->clone();
+
+		return true;
+	}
+
 	return false;
 }
 
 const bool Inventory::remove(const unsigned index)
 {
+	if (this->nrOfItems > 0)
+	{
+		if (index < 0 || index >= this->capacity)
+			return false;
+
+		delete this->itemArray[index];
+		this->itemArray[index] = nullptr;
+
+		return true;
+	}
+
 	return false;
 }
 

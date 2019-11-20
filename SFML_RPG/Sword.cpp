@@ -21,6 +21,11 @@ Sword::~Sword()
 
 }
 
+Sword * Sword::clone()
+{
+	return new Sword(*this);
+}
+
 void Sword::update(const sf::Vector2f & mouse_pos_view, const sf::Vector2f center)
 {
 	//Update visual weapon

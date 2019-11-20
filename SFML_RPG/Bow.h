@@ -13,6 +13,8 @@ private:
 public:
 	Bow();
 	virtual ~Bow();
+
+	virtual Bow* clone();
 };
 
 #endif //!BOW_H

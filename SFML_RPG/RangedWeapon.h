@@ -13,6 +13,9 @@ private:
 public:
 	RangedWeapon();
 	virtual ~RangedWeapon();
+
+	//Functions
+	virtual RangedWeapon* clone() = 0;
 };
 
 #endif //!RANGEDWEAPON_H;

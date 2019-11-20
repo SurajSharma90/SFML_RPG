@@ -8,6 +8,9 @@ private:
 public:
 	Item();
 	virtual ~Item();
+
+	//Function
+	virtual Item* clone() = 0;
 };
 
 #endif //Item.h
