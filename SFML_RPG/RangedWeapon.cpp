@@ -1,9 +1,10 @@
 #include "stdafx.h"
 #include "RangedWeapon.h"
 
-RangedWeapon::RangedWeapon()
+RangedWeapon::RangedWeapon(unsigned value)
+	: Item(value)
 {
-	std::cout << "RangedWeapon" << "\n";
+	this->type = ItemTypes::IT_RANGEDWEAPON;
 }
 
 RangedWeapon::~RangedWeapon()

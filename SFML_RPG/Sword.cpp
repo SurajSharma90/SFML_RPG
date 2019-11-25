@@ -1,7 +1,8 @@
 #include "stdafx.h"
 #include "Sword.h"
 
-Sword::Sword()
+Sword::Sword(unsigned value)
+	: MeleeWeapon(value)
 {
 	//Visual Weapon
 	if (!this->weapon_texture.loadFromFile("Resources/Images/Sprites/Player/sword.png"))

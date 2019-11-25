@@ -11,7 +11,7 @@ class RangedWeapon :
 private:
 
 public:
-	RangedWeapon();
+	RangedWeapon(unsigned value);
 	virtual ~RangedWeapon();
 
 	//Functions

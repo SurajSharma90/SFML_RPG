@@ -18,7 +18,7 @@ protected:
 	int damageMax;
 
 public:
-	MeleeWeapon();
+	MeleeWeapon(unsigned value);
 	virtual ~MeleeWeapon();
 
 	//Functions

@@ -11,7 +11,7 @@ class Sword :
 private:
 
 public:
-	Sword();
+	Sword(unsigned value);
 	virtual ~Sword();
 
 	virtual Sword* clone();

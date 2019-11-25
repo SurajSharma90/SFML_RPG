@@ -2,9 +2,10 @@
 
 #include "MeleeWeapon.h"
 
-MeleeWeapon::MeleeWeapon()
+MeleeWeapon::MeleeWeapon(unsigned value)
+	: Item(value)
 {
-
+	this->type = ItemTypes::IT_MELEEWEAPON;
 }
 
 MeleeWeapon::~MeleeWeapon()
