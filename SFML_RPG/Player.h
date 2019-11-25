@@ -2,8 +2,8 @@
 #define PLAYER_H
 
 #include "Entity.h"
-
-#include "Sword.h"
+#include "Items.h"
+#include "Inventory.h"
 
 class Entity;
 
@@ -12,6 +12,8 @@ class Player :
 {
 private:
 	//Variables
+	Inventory* inventory;
+
 	bool attacking;
 	Sword* sword;
 
@@ -19,6 +21,7 @@ private:
 	void initVariables();
 	void initComponents();
 	void initAnimations();
+	void initInventory();
 
 public:
 	Player(float x, float y, sf::Texture& texture_sheet);

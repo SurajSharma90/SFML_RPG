@@ -95,6 +95,7 @@ const bool Inventory::remove(const unsigned index)
 
 		delete this->itemArray[index];
 		this->itemArray[index] = nullptr;
+		--this->nrOfItems;
 
 		return true;
 	}

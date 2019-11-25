@@ -24,6 +24,11 @@ void Player::initAnimations()
 	this->animationComponent->addAnimation("ATTACK", 5.f, 0, 2, 1, 2, 64, 64);
 }
 
+void Player::initInventory()
+{
+	this->inventory = new Inventory(100);
+}
+
 //Constructors / Destructors
 Player::Player(float x, float y, sf::Texture& texture_sheet)
 {
@@ -37,10 +42,13 @@ Player::Player(float x, float y, sf::Texture& texture_sheet)
 
 	this->setPosition(x, y);
 	this->initAnimations();
+
+	this->initInventory();
 }
 
 Player::~Player()
 {
+	delete this->inventory;
 	delete this->sword;
 }
 

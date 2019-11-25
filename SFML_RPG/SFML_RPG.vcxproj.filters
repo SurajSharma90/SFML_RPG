@@ -260,6 +260,9 @@
     <ClInclude Include="Inventory.h">
       <Filter>Item</Filter>
     </ClInclude>
+    <ClInclude Include="Items.h">
+      <Filter>Item</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="fragment_shader.frag">
