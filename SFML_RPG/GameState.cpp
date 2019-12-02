@@ -243,6 +243,22 @@ void GameState::updateEnemies(const float & dt)
 	//this->activeEnemies.push_back(new Rat(200.f, 100.f, this->textures["RAT1_SHEET"]));
 }
 
+void GameState::updateCombat(const float & dt)
+{
+	for (auto i : this->activeEnemies)
+	{
+		if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
+		{
+			if (i->getGlobalBounds().contains(this->mousePosView) &&
+				std::abs(this->player->getPosition().x - i->getPosition().x) < this->player->getWeapon()->getRange())
+			{
+				//Get to this!!!!
+				std::cout << "Hit!" << rand()%29 << "\n";
+			}
+		}
+	}
+}
+
 void GameState::update(const float& dt)
 {
 	this->updateMousePositions(&this->view);
@@ -261,10 +277,13 @@ void GameState::update(const float& dt)
 
 		this->playerGUI->update(dt);
 
+		//Update all enemies
 		for (auto *i : this->activeEnemies)
 		{
 			i->update(dt, this->mousePosView);
-		}	
+		}
+
+		this->updateCombat(dt);
 	}
 	else //Paused update
 	{

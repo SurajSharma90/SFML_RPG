@@ -29,6 +29,7 @@ public:
 	
 	//Accessors
 	AttributeComponent* getAttributeComponent();
+	const Weapon* getWeapon() const;
 
 	//Functions
 	void loseHP(const int hp);

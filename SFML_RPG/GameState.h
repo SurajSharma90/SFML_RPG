@@ -57,6 +57,7 @@ public:
 	void updateTileMap(const float& dt);
 	void updatePlayer(const float& dt);
 	void updateEnemies(const float& dt);
+	void updateCombat(const float& dt);
 	void update(const float& dt);
 	void render(sf::RenderTarget* target = NULL);
 };
