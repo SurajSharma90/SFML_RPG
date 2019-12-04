@@ -234,6 +234,9 @@
     <None Include="fragment_shader.frag" />
     <None Include="vertex_shader.vert" />
   </ItemGroup>
+  <ItemGroup>
+    <Text Include="ToDo.txt" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

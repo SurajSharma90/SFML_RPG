@@ -1,0 +1,15 @@
+- Work on entities
+	Create helper functions like vector distance between two entities
+- Work on attacking
+	Place updateCombat in the for loop for enemies in update.
+	Create attack animation for Player
+	Set generic weapon pointer instead of Sword.
+	Make enemies lose health and die
+	Have enemies give EXP and drop items and pickups
+- Work on Inventory
+	Create GUI element
+	Create droppable items
+- Create particle system
+- Create text tag system
+
+	
