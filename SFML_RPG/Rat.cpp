@@ -38,11 +38,6 @@ Rat::~Rat()
 
 }
 
-void Rat::takeDamage(const int damage)
-{
-	this->attributeComponent->loseHP(damage);
-}
-
 void Rat::updateAnimation(const float & dt)
 {
 	if (this->movementComponent->getState(IDLE))

@@ -15,8 +15,6 @@ public:
 	virtual ~Rat();
 
 	//Functions
-	void takeDamage(const int damage);
-
 	void updateAnimation(const float & dt);
 	void update(const float & dt, sf::Vector2f& mouse_pos_view);
 

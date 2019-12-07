@@ -56,8 +56,8 @@ public:
 	void updatePauseMenuButtons();
 	void updateTileMap(const float& dt);
 	void updatePlayer(const float& dt);
-	void updateEnemies(const float& dt);
-	void updateCombat(Enemy* enemy, const float& dt);
+	void updateCombatAndEnemies(const float& dt);
+	void updateCombat(Enemy* enemy, const int index, const float& dt);
 	void update(const float& dt);
 	void render(sf::RenderTarget* target = NULL);
 };

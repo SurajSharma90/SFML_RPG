@@ -4,6 +4,15 @@
 void Weapon::initVariables()
 {
 	this->range = 20;
+	this->damageMin = 1;
+	this->damageMax = 2;
+}
+
+void Weapon::initCooldown()
+{
+	this->cooldown = 0.f;
+	this->cooldownMax = 10.f;
+	this->cooldownIteration = 1.f;
 }
 
 Weapon::Weapon(unsigned value, std::string texture_file)
@@ -20,6 +29,16 @@ Weapon::Weapon(unsigned value, std::string texture_file)
 Weapon::~Weapon()
 {
 
+}
+
+const unsigned & Weapon::getDamageMin() const
+{
+	return this->damageMin;
+}
+
+const unsigned & Weapon::getDamageMax() const
+{
+	return this->damageMax;
 }
 
 //Accessors

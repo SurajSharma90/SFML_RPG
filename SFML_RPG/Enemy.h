@@ -13,6 +13,7 @@ class Enemy :
 private:
 	//Variables
 	//EnemySpawner& enemySpawner;
+	unsigned gainExp;
 
 	//Initializer functions
 	virtual void initVariables() = 0;
@@ -22,7 +23,15 @@ public:
 	Enemy();
 	virtual ~Enemy();
 
+	//Accessors
+	const unsigned& getGainExp() const;
+
 	//Functions
+	virtual void loseHP(const int hp);
+	virtual const bool isDead() const;
+
+	virtual const AttributeComponent* getAttributeComp() const;
+
 	virtual void updateAnimation(const float & dt) = 0;
 
 	virtual void update(const float & dt, sf::Vector2f& mouse_pos_view) = 0;

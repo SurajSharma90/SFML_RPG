@@ -8,20 +8,27 @@ class Weapon :
 {
 private:
 	void initVariables();
+	void initCooldown();
 
 protected:
 	sf::Texture weapon_texture;
 	sf::Sprite weapon_sprite;
 
-	int damageMin;
-	int damageMax;
+	unsigned damageMin;
+	unsigned damageMax;
 	unsigned range;
+
+	float cooldown;
+	float cooldownMax;
+	float cooldownIteration;
 
 public:
 	Weapon(unsigned value, std::string texture_file);
 	virtual ~Weapon();
 
 	//Accessors
+	const unsigned& getDamageMin() const;
+	const unsigned& getDamageMax() const;
 	const unsigned& getRange() const;
 
 	//Function
