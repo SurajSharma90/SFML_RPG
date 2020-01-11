@@ -112,6 +112,11 @@ void GameState::initTileMap()
 	this->tileMap = new TileMap("text.slmp");
 }
 
+void GameState::initSystems()
+{
+	this->tts = new TextTagSystem("Fonts/PixellettersFull.ttf");
+}
+
 //Constructors / Destructors
 GameState::GameState(StateData* state_data)
 	: State(state_data)
@@ -127,7 +132,8 @@ GameState::GameState(StateData* state_data)
 	this->initPlayers();
 	this->initPlayerGUI();
 	this->initEnemySystem();
-	this->initTileMap();	
+	this->initTileMap();
+	this->initSystems();
 }
 
 GameState::~GameState()
@@ -137,6 +143,7 @@ GameState::~GameState()
 	delete this->playerGUI;
 	delete this->enemySystem;
 	delete this->tileMap;
+	delete this->tts;
 
 	for (size_t i = 0; i < this->activeEnemies.size(); i++)
 	{
@@ -205,6 +212,7 @@ void GameState::updatePlayerInput(const float & dt)
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key(this->keybinds.at("MOVE_DOWN"))))
 	{
 		this->player->move(0.f, 1.f, dt);
+		this->tts->addTextTag(DEFAULT_TAG);
 	}
 }
 
@@ -292,6 +300,9 @@ void GameState::update(const float& dt)
 		//Update all enemies
 		//CHANGE: Loop outside, and make functions take one enemy at a time
 		this->updateCombatAndEnemies(dt);
+
+		//Update systems
+		this->tts->update(dt);
 	}
 	else //Paused update
 	{
@@ -325,6 +336,8 @@ void GameState::render(sf::RenderTarget* target)
 	this->player->render(this->renderTexture, &this->core_shader, this->player->getCenter(), false);
 
 	this->tileMap->renderDeferred(this->renderTexture, &this->core_shader, this->player->getCenter());
+
+	this->tts->render(this->renderTexture);
 
 	//Render GUI
 	this->renderTexture.setView(this->renderTexture.getDefaultView());

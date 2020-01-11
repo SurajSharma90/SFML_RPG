@@ -56,9 +56,9 @@ private:
 			}
 		}
 
-		void render(sf::RenderTarget* target)
+		void render(sf::RenderTarget& target)
 		{
-			target->draw(this->text);
+			target.draw(this->text);
 		}
 	};
 
@@ -80,7 +80,7 @@ public:
 	void removeTextTag();
 
 	void update(const float &dt);
-	void render(sf::RenderTarget * target);
+	void render(sf::RenderTarget & target);
 };
 
 #endif // !TEXTTAGSYSTEM_H

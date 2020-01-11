@@ -52,6 +52,9 @@
     <Filter Include="Item\Armors">
       <UniqueIdentifier>{cb1934ce-31be-4f31-a949-349de53d516b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Systems">
+      <UniqueIdentifier>{6ffd502e-3261-40ec-9764-3bb2c697655d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -163,7 +166,7 @@
       <Filter>Item\Weapons</Filter>
     </ClCompile>
     <ClCompile Include="TextTagSystem.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Systems</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -279,7 +282,7 @@
       <Filter>Item\Weapons</Filter>
     </ClInclude>
     <ClInclude Include="TextTagSystem.h">
-      <Filter>Header Files</Filter>
+      <Filter>Systems</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
