@@ -7,6 +7,7 @@
 #include "PlayerGUI.h"
 #include "Sword.h"
 #include "Bow.h"
+#include "TextTagSystem.h"
 
 class GameState :
 	public State
