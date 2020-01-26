@@ -211,8 +211,7 @@ void GameState::updatePlayerInput(const float & dt)
 	}	
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key(this->keybinds.at("MOVE_DOWN"))))
 	{
-		this->player->move(0.f, 1.f, dt);
-		this->tts->addTextTag(DEFAULT_TAG);
+		this->player->move(0.f, 1.f, dt);	
 	}
 }
 
@@ -255,6 +254,7 @@ void GameState::updateCombatAndEnemies(const float & dt)
 		if (enemy->isDead())
 		{
 			this->player->gainEXP(enemy->getGainExp());
+			this->tts->addTextTag(DEFAULT_TAG, this->player->getPosition().x, this->player->getPosition().y, static_cast<int>(enemy->getGainExp()));
 
 			this->activeEnemies.erase(this->activeEnemies.begin() + index);
 			--index;
@@ -273,8 +273,9 @@ void GameState::updateCombat(Enemy* enemy, const int index, const float & dt)
 			&& enemy->getDistance(*this->player) < 30.f)
 		{
 			//Get to this!!!!
-			enemy->loseHP(this->player->getWeapon()->getDamageMin());
-			std::cout << enemy->getAttributeComp()->hp << "\n";
+			int dmg = static_cast<int>(this->player->getWeapon()->getDamageMin());
+			enemy->loseHP(dmg);
+			this->tts->addTextTag(DEFAULT_TAG, this->player->getPosition().x, this->player->getPosition().y, dmg);
 		}
 	}
 }
