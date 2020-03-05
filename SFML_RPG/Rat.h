@@ -9,6 +9,9 @@ class Rat :
 private:
 	void initVariables();
 	void initAnimations();
+	void initGUI();
+
+	sf::RectangleShape hpBar;
 
 public:
 	Rat(float x, float y, sf::Texture& texture_sheet);
