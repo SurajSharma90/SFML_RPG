@@ -12,8 +12,8 @@ void Weapon::initVariables()
 	this->attackTimerMax = 500;
 }
 
-Weapon::Weapon(unsigned value, std::string texture_file)
-	: Item(value)
+Weapon::Weapon(unsigned level, unsigned value, std::string texture_file)
+	: Item(level, value)
 {
 	this->initVariables();
 
@@ -23,8 +23,8 @@ Weapon::Weapon(unsigned value, std::string texture_file)
 	this->weapon_sprite.setTexture(this->weapon_texture);
 }
 
-Weapon::Weapon(unsigned damageMin, unsigned damageMax, unsigned range, unsigned value, std::string texture_file)
-	: Item(value)
+Weapon::Weapon(unsigned level, unsigned damageMin, unsigned damageMax, unsigned range, unsigned value, std::string texture_file)
+	: Item(level, value)
 {
 	this->initVariables();
 

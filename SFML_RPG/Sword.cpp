@@ -1,10 +1,10 @@
 #include "stdafx.h"
 #include "Sword.h"
 
-Sword::Sword(unsigned damageMin, unsigned damageMax, unsigned range, 
+Sword::Sword(unsigned level, unsigned damageMin, unsigned damageMax, unsigned range,
 	unsigned value, 
 	std::string texture_file)
-	: MeleeWeapon(damageMin, damageMax, range, value, texture_file)
+	: MeleeWeapon(level, damageMin, damageMax, range, value, texture_file)
 {
 	//Visual Weapon
 	this->weapon_sprite.setOrigin
