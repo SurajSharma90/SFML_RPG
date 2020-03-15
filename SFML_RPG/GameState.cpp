@@ -273,7 +273,7 @@ void GameState::updateCombat(Enemy* enemy, const int index, const float & dt)
 			&& enemy->getDistance(*this->player) < this->player->getWeapon()->getRange())
 		{
 			//Get to this!!!!
-			int dmg = static_cast<int>(this->player->getWeapon()->getDamageMax());
+			int dmg = static_cast<int>(this->player->getWeapon()->getDamage());
 			enemy->loseHP(dmg);
 			this->tts->addTextTag(NEGATIVE_TAG, enemy->getPosition().x, enemy->getPosition().y, dmg);
 		}

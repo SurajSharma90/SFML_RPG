@@ -11,7 +11,9 @@ class Sword :
 private:
 
 public:
-	Sword(unsigned value, std::string texture_file);
+	Sword(unsigned damageMin, unsigned damageMax, unsigned range, 
+		unsigned value, 
+		std::string texture_file);
 	virtual ~Sword();
 
 	virtual Sword* clone();

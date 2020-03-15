@@ -11,7 +11,9 @@ private:
 protected:
 
 public:
-	MeleeWeapon(unsigned value, std::string texture_file);
+	MeleeWeapon(unsigned damageMin, unsigned damageMax, unsigned range, 
+		unsigned value, 
+		std::string texture_file);
 	virtual ~MeleeWeapon();
 
 	//Functions
