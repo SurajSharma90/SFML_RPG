@@ -88,9 +88,9 @@ public:
 	virtual ~TextTagSystem();
 
 	//Functions
-	void addTextTag(const unsigned tag_type, const float pos_x, const float pos_y, const std::string str);
-	void addTextTag(const unsigned tag_type, const float pos_x, const float pos_y, const int i);
-	void addTextTag(const unsigned tag_type, const float pos_x, const float pos_y, const float f);
+	void addTextTag(const unsigned tag_type, const float pos_x, const float pos_y, const std::string str, const std::string prefix, const std::string postfix);
+	void addTextTag(const unsigned tag_type, const float pos_x, const float pos_y, const int i, const std::string prefix, const std::string postfix);
+	void addTextTag(const unsigned tag_type, const float pos_x, const float pos_y, const float f, const std::string prefix, const std::string postfix);
 
 	void update(const float &dt);
 	void render(sf::RenderTarget & target);
