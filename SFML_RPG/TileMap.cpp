@@ -508,8 +508,10 @@ void TileMap::updateTiles(Entity * entity, const float & dt, EnemySystem& enemyS
 		{
 			for (size_t k = 0; k < this->map[x][y][this->layer].size(); k++)
 			{
+				//Update the tile
 				this->map[x][y][this->layer][k]->update();
 
+				//Update tile types (specific)
 				if (this->map[x][y][this->layer][k]->getType() == TileTypes::ENEMYSPAWNER)
 				{
 					EnemySpawnerTile* es = dynamic_cast<EnemySpawnerTile*>(this->map[x][y][this->layer][k]);
@@ -597,7 +599,7 @@ void TileMap::render
 				if (this->map[x][y][this->layer][k]->getType() == TileTypes::ENEMYSPAWNER)
 				{
 					this->collisionBox.setPosition(this->map[x][y][this->layer][k]->getPosition());
-					//target.draw(this->collisionBox);
+					target.draw(this->collisionBox);
 				}
 			}		
 		}
