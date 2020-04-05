@@ -14,7 +14,7 @@ private:
 	sf::RectangleShape hpBar;
 
 public:
-	Rat(float x, float y, sf::Texture& texture_sheet);
+	Rat(float x, float y, sf::Texture& texture_sheet, EnemySpawnerTile& enemy_spawner_tile);
 	virtual ~Rat();
 
 	//Functions

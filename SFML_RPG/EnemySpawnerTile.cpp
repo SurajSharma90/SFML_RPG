@@ -9,6 +9,7 @@ EnemySpawnerTile::EnemySpawnerTile(int grid_x, int grid_y, float gridSizeF,
 {
 	this->enemyType = enemy_type;
 	this->enemyAmount = enemy_amount;
+	this->enemyCounter = 0;
 	this->enemySpawnTimer.restart();
 	this->enemyTimeToSpawn = enemy_time_to_spawn;
 	this->enemyMaxDistance = enemy_max_distance;
@@ -47,6 +48,16 @@ const bool & EnemySpawnerTile::getSpawned() const
 	return this->spawned;
 }
 
+const int & EnemySpawnerTile::getEnemyAmount() const
+{
+	return this->enemyAmount;
+}
+
+const int & EnemySpawnerTile::getEnemyCounter() const
+{
+	return this->enemyCounter;
+}
+
 void EnemySpawnerTile::setSpawned(const bool spawned)
 {
 	this->spawned = spawned;
@@ -61,6 +72,22 @@ const bool EnemySpawnerTile::canSpawn() const
 		return true;
 	}
 	return false;
+}
+
+void EnemySpawnerTile::increaseEnemyCounter()
+{
+	if (this->enemyCounter > this->enemyAmount)
+		this->enemyCounter = this->enemyAmount;
+	else
+		++this->enemyCounter;
+}
+
+void EnemySpawnerTile::decreaseEnemyCounter()
+{
+	if (this->enemyCounter < 0)
+		this->enemyCounter = 0;
+	else
+		--this->enemyCounter;
 }
 
 //Functions
