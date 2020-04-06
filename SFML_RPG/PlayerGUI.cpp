@@ -43,6 +43,24 @@ void PlayerGUI::initHPBar()
 		this->vm, &this->font);
 }
 
+void PlayerGUI::initTabMenu()
+{
+
+}
+
+void PlayerGUI::initCharacterTab()
+{
+	//Background
+	this->CharacterTabBack.setFillColor(sf::Color(50, 50, 50, 180));
+	this->CharacterTabBack.setSize(sf::Vector2f(gui::p2pX(30.f, this->vm), static_cast<float>(this->vm.height)));
+
+	//Text
+	this->CharacterInfoText.setFont(this->font);
+	this->CharacterInfoText.setCharacterSize(gui::calcCharSize(this->vm, 50));
+	this->CharacterInfoText.setFillColor(sf::Color::White);
+	this->CharacterInfoText.setPosition(this->CharacterTabBack.getPosition().x + 20.f, this->CharacterTabBack.getPosition().y + 20.f);
+}
+
 PlayerGUI::PlayerGUI(Player* player, sf::VideoMode& vm)
 	: vm(vm)
 {
@@ -52,6 +70,10 @@ PlayerGUI::PlayerGUI(Player* player, sf::VideoMode& vm)
 	this->initLevelBar();
 	this->initEXPBar();
 	this->initHPBar();
+
+	//Tabs
+	this->initTabMenu();
+	this->initCharacterTab();
 }
 
 PlayerGUI::~PlayerGUI()
@@ -77,11 +99,19 @@ void PlayerGUI::updateHPBar()
 	this->hpBar->update(this->player->getAttributeComponent()->hp);
 }
 
+void PlayerGUI::updateCharacterTab()
+{
+	this->CharacterInfoText.setString("TESTOMG!");
+}
+
 void PlayerGUI::update(const float & dt)
 {
 	this->updateLevelBar();
 	this->updateEXPBar();
 	this->updateHPBar();
+
+	//Tabs
+	this->updateCharacterTab();
 }
 
 
@@ -101,9 +131,19 @@ void PlayerGUI::renderHPBar(sf::RenderTarget & target)
 	this->hpBar->render(target);
 }
 
+//Tabs
+void PlayerGUI::renderCharacterTab(sf::RenderTarget & target)
+{
+	target.draw(this->CharacterTabBack);
+	target.draw(this->CharacterInfoText);
+}
+
 void PlayerGUI::render(sf::RenderTarget & target)
 {
 	this->renderLevelBar(target);
 	this->renderEXPBar(target);
 	this->renderHPBar(target);
+
+	//Tabs
+	this->renderCharacterTab(target);
 }
