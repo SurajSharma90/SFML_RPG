@@ -173,6 +173,7 @@
     <ClCompile Include="MovementComponent.cpp" />
     <ClCompile Include="PauseMenu.cpp" />
     <ClCompile Include="PlayerGUI.cpp" />
+    <ClCompile Include="PlayerGUITabs.cpp" />
     <ClCompile Include="RangedWeapon.cpp" />
     <ClCompile Include="Rat.cpp" />
     <ClCompile Include="RegularTile.cpp" />
@@ -218,6 +219,7 @@
     <ClInclude Include="MovementComponent.h" />
     <ClInclude Include="PauseMenu.h" />
     <ClInclude Include="PlayerGUI.h" />
+    <ClInclude Include="PlayerGUITabs.h" />
     <ClInclude Include="RangedWeapon.h" />
     <ClInclude Include="Rat.h" />
     <ClInclude Include="RegularTile.h" />

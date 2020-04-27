@@ -1,10 +1,6 @@
 #pragma once
 
-#include "Player.h"
-#include "Gui.h"
-
-class Player;
-class sf::RectangleShape;
+#include "PlayerGUITabs.h"
 
 class PlayerGUI
 {
@@ -25,16 +21,14 @@ private:
 	//HP Bar
 	gui::ProgressBar* hpBar;
 
-	//Tabs
-
-	//Character Tab
-	sf::RectangleShape CharacterTabBack;
-	sf::Text CharacterInfoText;
+	//Player GUI Tabs
+	PlayerGUITabs* playerTabs;
 
 	void initFont();
 	void initLevelBar();
 	void initEXPBar();
 	void initHPBar();
+	void initPlayerTabs(sf::VideoMode &vm, sf::Font &font, Player &player);
 
 public:
 	PlayerGUI(Player* player, sf::VideoMode& vm);
@@ -44,18 +38,12 @@ public:
 	void updateLevelBar();
 	void updateEXPBar();
 	void updateHPBar();
-	void updateCharacterTab();
-
-	//Tabs
-	void initTabMenu();
-	void initCharacterTab();
 
 	void update(const float& dt);
 
 	void renderLevelBar(sf::RenderTarget & target);
 	void renderEXPBar(sf::RenderTarget & target);
 	void renderHPBar(sf::RenderTarget & target);
-	void renderCharacterTab(sf::RenderTarget & target);
 	void render(sf::RenderTarget& target);
 };
 

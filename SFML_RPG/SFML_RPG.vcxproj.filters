@@ -168,6 +168,9 @@
     <ClCompile Include="TextTagSystem.cpp">
       <Filter>Systems</Filter>
     </ClCompile>
+    <ClCompile Include="PlayerGUITabs.cpp">
+      <Filter>GUI</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h">
@@ -283,6 +286,9 @@
     </ClInclude>
     <ClInclude Include="TextTagSystem.h">
       <Filter>Systems</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerGUITabs.h">
+      <Filter>GUI</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
