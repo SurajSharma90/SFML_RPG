@@ -1,11 +1,12 @@
 #pragma once
 
-#include "Player.h"
-#include "Gui.h"
+#include "CharacterTab.h"
 
 class PlayerGUITabs
 {
 private:
+	
+	CharacterTab characterTab;
 
 	//Core
 	sf::VideoMode& vm;
@@ -15,15 +16,13 @@ private:
 	//Tabs
 
 	//Character Tab
-	sf::RectangleShape CharacterTabBack;
-	sf::Text CharacterInfoText;
+	
 
 public:
 	PlayerGUITabs(sf::VideoMode& vm, sf::Font& font, Player& player);
 	virtual ~PlayerGUITabs();
 
-	//Functions
-	void initTabMenu();
-	void initCharacterTab();
+	void update();
+	void render(sf::RenderTarget* target);
 };
 
