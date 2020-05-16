@@ -9,12 +9,20 @@ protected:
 	sf::VideoMode& vm;
 	sf::Font& font;
 	Player& player;
+	bool hidden;
 
 public:
-	Tab(sf::VideoMode& vm, sf::Font& font, Player& player);
+	Tab(sf::VideoMode& vm, sf::Font& font, Player& player, bool hidden);
 	virtual ~Tab();
 
+	//Accessor
+	const bool& getHidden() const;
+
+	//Functions
+	void hide();
+	void show();
+
 	virtual void update() = 0;
-	virtual void render(sf::RenderTarget* target) = 0;
+	virtual void render(sf::RenderTarget& target) = 0;
 };
 

@@ -23,6 +23,6 @@ public:
 	virtual ~PlayerGUITabs();
 
 	void update();
-	void render(sf::RenderTarget* target);
+	void render(sf::RenderTarget& target);
 };
 

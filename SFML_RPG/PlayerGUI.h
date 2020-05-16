@@ -38,12 +38,15 @@ public:
 	void updateLevelBar();
 	void updateEXPBar();
 	void updateHPBar();
+	void updatePlayerTabs();
 
 	void update(const float& dt);
 
 	void renderLevelBar(sf::RenderTarget & target);
 	void renderEXPBar(sf::RenderTarget & target);
 	void renderHPBar(sf::RenderTarget & target);
+	void renderPlayerTabs(sf::RenderTarget& target);
+
 	void render(sf::RenderTarget& target);
 };
 
