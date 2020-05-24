@@ -67,6 +67,11 @@ PlayerGUI::~PlayerGUI()
 	delete this->playerTabs;
 }
 
+const bool PlayerGUI::getTabsOpen() const
+{
+	return this->playerTabs->tabsOpen();
+}
+
 //Functions
 void PlayerGUI::updateLevelBar()
 {

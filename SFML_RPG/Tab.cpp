@@ -17,6 +17,11 @@ const bool& Tab::getHidden() const
 	return this->hidden;
 }
 
+const bool& Tab::getOpen() const
+{
+	return (this->hidden == false);
+}
+
 void Tab::hide()
 {
 	this->hidden = true;

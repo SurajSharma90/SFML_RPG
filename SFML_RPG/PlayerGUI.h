@@ -34,6 +34,9 @@ public:
 	PlayerGUI(Player* player, sf::VideoMode& vm);
 	virtual ~PlayerGUI();
 
+	//Accessor
+	const bool getTabsOpen() const;
+
 	//Functions
 	void updateLevelBar();
 	void updateEXPBar();
