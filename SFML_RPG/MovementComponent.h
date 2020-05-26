@@ -8,13 +8,19 @@ class MovementComponent
 private:
 	sf::Sprite& sprite;
 
-	float maxVelocity;
-	float acceleration;
-	float deceleration;
+	float m_maxVelocity;
+	float m_acceleration;
+	float m_deceleration;
 
-	sf::Vector2f velocity;
+	sf::Vector2f m_velocity;
 
 	//Initializer functions
+
+	//Support functions
+	inline void acceleration(const float dir_x, const float dir_y, const float& dt);
+	inline void deceleration(const float& dt);
+
+	inline void maxVelocityCheck();
 
 public:
 	MovementComponent(sf::Sprite& sprite, 
