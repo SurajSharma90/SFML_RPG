@@ -36,6 +36,7 @@ public:
 
 	//Accessor
 	const bool getTabsOpen() const;
+	void toggleCharacterTab();
 
 	//Functions
 	void updateLevelBar();

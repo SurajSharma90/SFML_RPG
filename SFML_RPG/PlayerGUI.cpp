@@ -72,6 +72,11 @@ const bool PlayerGUI::getTabsOpen() const
 	return this->playerTabs->tabsOpen();
 }
 
+void PlayerGUI::toggleCharacterTab()
+{
+	this->playerTabs->toggleCharacterTab();
+}
+
 //Functions
 void PlayerGUI::updateLevelBar()
 {

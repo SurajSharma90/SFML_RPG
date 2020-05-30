@@ -35,15 +35,17 @@ const bool PlayerGUITabs::tabsOpen()
 	return this->characterTab.getOpen();
 }
 
+void PlayerGUITabs::toggleCharacterTab()
+{
+	if (this->characterTab.getHidden())
+		this->characterTab.show();
+	else
+		this->characterTab.hide();
+}
+
 void PlayerGUITabs::update()
 {
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::C) && this->getKeyTime())
-	{
-		if(this->characterTab.getHidden())
-			this->characterTab.show();
-		else
-			this->characterTab.hide();
-	}
+
 }
 
 void PlayerGUITabs::render(sf::RenderTarget & target)
