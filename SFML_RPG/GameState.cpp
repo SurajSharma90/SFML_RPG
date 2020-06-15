@@ -172,13 +172,10 @@ const bool GameState::getKeyTime()
 //Functions
 void GameState::updateView(const float & dt)
 {
-	if (!this->playerGUI->getTabsOpen())
-	{
-		this->view.setCenter(
-			std::floor(this->player->getPosition().x + (static_cast<float>(this->mousePosWindow.x) - static_cast<float>(this->stateData->gfxSettings->resolution.width / 2)) / 10.f),
-			std::floor(this->player->getPosition().y + (static_cast<float>(this->mousePosWindow.y) - static_cast<float>(this->stateData->gfxSettings->resolution.height / 2)) / 10.f)
-		);
-	}
+	this->view.setCenter(
+		std::floor(this->player->getPosition().x + (static_cast<float>(this->mousePosWindow.x) - static_cast<float>(this->stateData->gfxSettings->resolution.width / 2)) / 10.f),
+		std::floor(this->player->getPosition().y + (static_cast<float>(this->mousePosWindow.y) - static_cast<float>(this->stateData->gfxSettings->resolution.height / 2)) / 10.f)
+	);
 	
 	if (this->tileMap->getMaxSizeF().x >= this->view.getSize().x)
 	{
@@ -222,20 +219,17 @@ void GameState::updateInput(const float & dt)
 void GameState::updatePlayerInput(const float & dt)
 {
 	//Update player input
-	if (this->playerGUI->getTabsOpen() == false)
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key(this->keybinds.at("MOVE_LEFT"))))
+		this->player->move(-1.f, 0.f, dt);
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key(this->keybinds.at("MOVE_RIGHT"))))
+		this->player->move(1.f, 0.f, dt);
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key(this->keybinds.at("MOVE_UP"))))
 	{
-		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key(this->keybinds.at("MOVE_LEFT"))))
-			this->player->move(-1.f, 0.f, dt);
-		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key(this->keybinds.at("MOVE_RIGHT"))))
-			this->player->move(1.f, 0.f, dt);
-		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key(this->keybinds.at("MOVE_UP"))))
-		{
-			this->player->move(0.f, -1.f, dt);
-		}
-		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key(this->keybinds.at("MOVE_DOWN"))))
-		{
-			this->player->move(0.f, 1.f, dt);
-		}
+		this->player->move(0.f, -1.f, dt);
+	}
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key(this->keybinds.at("MOVE_DOWN"))))
+	{
+		this->player->move(0.f, 1.f, dt);
 	}
 }
 

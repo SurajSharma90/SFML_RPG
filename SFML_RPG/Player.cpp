@@ -64,6 +64,18 @@ Weapon * Player::getWeapon() const
 	return this->sword;
 }
 
+const std::string Player::toStringCharacterTab() const
+{
+	std::stringstream ss;
+	AttributeComponent* ac = this->attributeComponent;
+
+	ss << "Level: " << ac->level << "\n"
+		<< "Exp: " << ac->exp << "\n"
+		<< "Exp next: " << ac->expNext << "\n";
+
+	return ss.str();
+}
+
 //Functions
 void Player::loseHP(const int hp)
 {
