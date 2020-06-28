@@ -17,6 +17,11 @@ void Rat::initAnimations()
 	this->animationComponent->addAnimation("ATTACK", 5.f, 0, 2, 1, 2, 60, 64);
 }
 
+void Rat::initAI()
+{
+	
+}
+
 void Rat::initGUI()
 {
 	this->hpBar.setFillColor(sf::Color::Red);

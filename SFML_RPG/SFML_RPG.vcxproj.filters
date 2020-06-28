@@ -58,6 +58,12 @@
     <Filter Include="GUI\PlayerGUITabs">
       <UniqueIdentifier>{7bc4af6c-fc17-42ba-9e3e-761ac34e6575}</UniqueIdentifier>
     </Filter>
+    <Filter Include="AI">
+      <UniqueIdentifier>{8bb114a8-a588-484d-8b3e-b73f4414694c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="AI\Options">
+      <UniqueIdentifier>{61f5ea60-5992-49d5-bfd5-06e4553cb294}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -179,6 +185,12 @@
     </ClCompile>
     <ClCompile Include="Tab.cpp">
       <Filter>GUI\PlayerGUITabs</Filter>
+    </ClCompile>
+    <ClCompile Include="AIOption.cpp">
+      <Filter>AI</Filter>
+    </ClCompile>
+    <ClCompile Include="AIFollow.cpp">
+      <Filter>AI\Options</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -304,6 +316,12 @@
     </ClInclude>
     <ClInclude Include="Tab.h">
       <Filter>GUI\PlayerGUITabs</Filter>
+    </ClInclude>
+    <ClInclude Include="AIOption.h">
+      <Filter>AI</Filter>
+    </ClInclude>
+    <ClInclude Include="AIFollow.h">
+      <Filter>AI\Options</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
