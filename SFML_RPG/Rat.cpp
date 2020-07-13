@@ -30,7 +30,7 @@ void Rat::initGUI()
 }
 
 //Constructors / Destructors
-Rat::Rat(float x, float y, sf::Texture& texture_sheet, EnemySpawnerTile& enemy_spawner_tile)
+Rat::Rat(float x, float y, sf::Texture& texture_sheet, EnemySpawnerTile& enemy_spawner_tile, Entity& player)
 	: Enemy(enemy_spawner_tile)
 {
 	this->initVariables();
@@ -45,12 +45,14 @@ Rat::Rat(float x, float y, sf::Texture& texture_sheet, EnemySpawnerTile& enemy_s
 
 	this->setPosition(x, y);
 	this->initAnimations();
+
+	this->follow = new AIFollow(*this, player);
 }
 
 
 Rat::~Rat()
 {
-
+	delete this->follow;
 }
 
 void Rat::updateAnimation(const float & dt)
@@ -90,6 +92,8 @@ void Rat::update(const float & dt, sf::Vector2f& mouse_pos_view)
 	this->updateAnimation(dt);
 
 	this->hitboxComponent->update();
+
+	this->follow->update(dt);
 }
 
 void Rat::render(sf::RenderTarget & target, sf::Shader* shader, const sf::Vector2f light_position, const bool show_hitbox)

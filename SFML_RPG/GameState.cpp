@@ -110,7 +110,7 @@ void GameState::initPlayerGUI()
 
 void GameState::initEnemySystem()
 {
-	this->enemySystem = new EnemySystem(this->activeEnemies, this->textures);
+	this->enemySystem = new EnemySystem(this->activeEnemies, this->textures, *this->player);
 }
 
 void GameState::initTileMap()
