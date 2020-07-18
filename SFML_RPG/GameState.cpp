@@ -295,10 +295,10 @@ void GameState::updateCombatAndEnemies(const float & dt)
 
 void GameState::updateCombat(Enemy* enemy, const int index, const float & dt)
 {
-	if (this->player->getWeapon()->getAttackTimer() && enemy->getDamageTimerDone())
+	if (enemy->getGlobalBounds().contains(this->mousePosView)
+		&& enemy->getDistance(*this->player) < this->player->getWeapon()->getRange())
 	{
-		if (enemy->getGlobalBounds().contains(this->mousePosView)
-			&& enemy->getDistance(*this->player) < this->player->getWeapon()->getRange())
+		if (this->player->getWeapon()->getAttackTimer() && enemy->getDamageTimerDone())
 		{
 			//Get to this!!!!
 			int dmg = static_cast<int>(this->player->getWeapon()->getDamage());
