@@ -5,6 +5,7 @@
 //Initializer functions
 void Player::initVariables()
 {
+	this->initAttack = false;
 	this->attacking = false;
 	this->sword = new Sword(1, 2, 5, 60, 20, "Resources/Images/Sprites/Player/sword.png");
 	this->sword->generate(1, 3);
@@ -74,6 +75,16 @@ const std::string Player::toStringCharacterTab() const
 		<< "Exp next: " << ac->expNext << "\n";
 
 	return ss.str();
+}
+
+const bool& Player::getInitAttack() const
+{
+	return this->initAttack;
+}
+
+void Player::setInitAttack(const bool initAttack)
+{
+	this->initAttack = initAttack;
 }
 
 //Functions
