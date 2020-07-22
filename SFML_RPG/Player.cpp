@@ -7,7 +7,7 @@ void Player::initVariables()
 {
 	this->initAttack = false;
 	this->attacking = false;
-	this->sword = new Sword(1, 2, 5, 60, 20, "Resources/Images/Sprites/Player/sword.png");
+	this->sword = new Sword(1, 2, 5, 100, 20, "Resources/Images/Sprites/Player/sword.png");
 	this->sword->generate(1, 3);
 }
 
@@ -37,7 +37,7 @@ Player::Player(float x, float y, sf::Texture& texture_sheet)
 	this->initVariables();
 
 	this->createHitboxComponent(this->sprite, 12.f, 10.f, 40.f, 54.f);
-	this->createMovementComponent(200.f, 1600.f, 1000.f);
+	this->createMovementComponent(140.f, 1400.f, 1000.f);
 	this->createAnimationComponent(texture_sheet);
 	this->createAttributeComponent(1);
 	this->createSkillComponent();
