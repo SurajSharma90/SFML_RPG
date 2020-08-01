@@ -274,14 +274,13 @@ void GameState::updateCombatAndEnemies(const float & dt)
 		this->tileMap->updateWorldBoundsCollision(enemy, dt);
 		this->tileMap->updateTileCollision(enemy, dt);
 
-		if(this->player->getInitAttack())
-			this->updateCombat(enemy, index, dt);
+	  this->updateCombat(enemy, index, dt);
 
 		//DANGEROUS!!!
 		if (enemy->isDead())
 		{
 			this->player->gainEXP(enemy->getGainExp());
-			this->tts->addTextTag(EXPERIENCE_TAG, this->player->getPosition().x, this->player->getPosition().y, static_cast<int>(enemy->getGainExp()), "", "+EXP");
+			this->tts->addTextTag(EXPERIENCE_TAG, this->player->getPosition().x - 50.f, this->player->getPosition().y, static_cast<int>(enemy->getGainExp()), "+", "EXP");
 
 			this->enemySystem->removeEnemy(index);
 			--index;
@@ -295,15 +294,24 @@ void GameState::updateCombatAndEnemies(const float & dt)
 
 void GameState::updateCombat(Enemy* enemy, const int index, const float & dt)
 {
-	if (enemy->getGlobalBounds().contains(this->mousePosView)
+	if (this->player->getInitAttack()
+	  && enemy->getGlobalBounds().contains(this->mousePosView)
 		&& enemy->getDistance(*this->player) < this->player->getWeapon()->getRange() 
 		&& enemy->getDamageTimerDone())
 	{
 		//Get to this!!!!
-		int dmg = static_cast<int>(this->player->getWeapon()->getDamage());
+		int dmg = static_cast<int>(this->player->getDamage());
 		enemy->loseHP(dmg);
 		enemy->resetDamageTimer();
-		this->tts->addTextTag(NEGATIVE_TAG, enemy->getPosition().x, enemy->getPosition().y, dmg, "", "-HP");	
+		this->tts->addTextTag(DEFAULT_TAG, enemy->getPosition().x, enemy->getPosition().y, dmg, "", "");	
+	}
+
+	//Check for enemy damage
+	if (enemy->getGlobalBounds().intersects(this->player->getGlobalBounds()) && this->player->getDamageTimer())
+	{
+		int dmg = enemy->getAttributeComp()->damageMax;
+		this->player->loseHP(dmg);
+		this->tts->addTextTag(NEGATIVE_TAG, enemy->getPosition().x - 50.f, enemy->getPosition().y, dmg, "-", "HP");
 	}
 }
 

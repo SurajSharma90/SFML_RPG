@@ -7,8 +7,10 @@ void Player::initVariables()
 {
 	this->initAttack = false;
 	this->attacking = false;
-	this->sword = new Sword(1, 2, 5, 100, 20, "Resources/Images/Sprites/Player/sword.png");
-	this->sword->generate(1, 3);
+	this->weapon = new Sword(1, 2, 5, 100, 20, "Resources/Images/Sprites/Player/sword.png");
+	this->weapon->generate(1, 3);
+
+	this->damageTimerMax = 500;
 }
 
 void Player::initComponents()
@@ -51,7 +53,7 @@ Player::Player(float x, float y, sf::Texture& texture_sheet)
 Player::~Player()
 {
 	delete this->inventory;
-	delete this->sword;
+	delete this->weapon;
 }
 
 //Accessors
@@ -62,7 +64,7 @@ AttributeComponent * Player::getAttributeComponent()
 
 Weapon * Player::getWeapon() const
 {
-	return this->sword;
+	return this->weapon;
 }
 
 const std::string Player::toStringCharacterTab() const
@@ -80,6 +82,25 @@ const std::string Player::toStringCharacterTab() const
 const bool& Player::getInitAttack() const
 {
 	return this->initAttack;
+}
+
+const bool Player::getDamageTimer()
+{
+	if(this->damageTimer.getElapsedTime().asMilliseconds() >= this->damageTimerMax)
+	{ 
+		this->damageTimer.restart();
+		return true;
+	}
+
+	return false;
+}
+
+const unsigned Player::getDamage() const
+{
+	return rand() % (
+	(this->attributeComponent->damageMax + this->weapon->getDamageMax()) 
+	- (this->attributeComponent->damageMin + this->weapon->getDamageMin()) + 1)
+	+ (this->attributeComponent->damageMin + this->weapon->getDamageMin());
 }
 
 void Player::setInitAttack(const bool initAttack)
@@ -144,7 +165,7 @@ void Player::update(const float & dt, sf::Vector2f& mouse_pos_view)
 	
 	this->hitboxComponent->update();
 
-	this->sword->update(mouse_pos_view, this->getCenter());
+	this->weapon->update(mouse_pos_view, this->getCenter());
 }
 
 void Player::render(sf::RenderTarget & target, sf::Shader* shader, const sf::Vector2f light_position, const bool show_hitbox)
@@ -157,12 +178,12 @@ void Player::render(sf::RenderTarget & target, sf::Shader* shader, const sf::Vec
 
 		shader->setUniform("hasTexture", true);
 		shader->setUniform("lightPos", light_position);
-		this->sword->render(target, shader);
+		this->weapon->render(target, shader);
 	}
 	else 
 	{
 		target.draw(this->sprite);
-		this->sword->render(target);
+		this->weapon->render(target);
 	}
 	
 	if(show_hitbox)
