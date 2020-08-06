@@ -165,7 +165,7 @@ void Player::updateAnimation(const float & dt)
 	}
 }
 
-void Player::update(const float & dt, sf::Vector2f& mouse_pos_view)
+void Player::update(const float & dt, sf::Vector2f& mouse_pos_view, const sf::View& view)
 {
 	this->movementComponent->update(dt);
 

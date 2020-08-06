@@ -258,7 +258,7 @@ void GameState::updateTileMap(const float & dt)
 
 void GameState::updatePlayer(const float & dt)
 {
-	this->player->update(dt, this->mousePosView);
+	this->player->update(dt, this->mousePosView, this->view);
 }
 
 void GameState::updateCombatAndEnemies(const float & dt)
@@ -269,7 +269,7 @@ void GameState::updateCombatAndEnemies(const float & dt)
 	unsigned index = 0;
 	for (auto *enemy : this->activeEnemies)
 	{
-		enemy->update(dt, this->mousePosView);
+		enemy->update(dt, this->mousePosView, this->view);
 
 		this->tileMap->updateWorldBoundsCollision(enemy, dt);
 		this->tileMap->updateTileCollision(enemy, dt);
@@ -283,7 +283,12 @@ void GameState::updateCombatAndEnemies(const float & dt)
 			this->tts->addTextTag(EXPERIENCE_TAG, this->player->getPosition().x - 40.f, this->player->getPosition().y - 30.f, static_cast<int>(enemy->getGainExp()), "+", "EXP");
 
 			this->enemySystem->removeEnemy(index);
-			--index;
+			continue;
+		}
+		else if (enemy->getDespawnTimerDone())
+		{
+			this->enemySystem->removeEnemy(index);
+			continue;
 		}
 
 		++index;

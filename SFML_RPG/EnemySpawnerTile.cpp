@@ -13,7 +13,7 @@ EnemySpawnerTile::EnemySpawnerTile(int grid_x, int grid_y, float gridSizeF,
 	this->enemySpawnTimer.restart();
 	this->enemyTimeToSpawn = enemy_time_to_spawn;
 	this->enemyMaxDistance = enemy_max_distance;
-	this->spawned = false;
+	this->firstSpawn = true;
 }
 
 EnemySpawnerTile::~EnemySpawnerTile()
@@ -38,14 +38,9 @@ const std::string EnemySpawnerTile::getAsString() const
 	ss << this->type << " " << this->shape.getTextureRect().left << " " << this->shape.getTextureRect().top << " "
 		<< this->enemyType << " "  << this->enemyAmount << " " << this->enemyTimeToSpawn << " " << this->enemyMaxDistance;
 
-	std::cout << ss.str() << "\n";
+	//std::cout << ss.str() << "\n";
 
 	return ss.str();
-}
-
-const bool & EnemySpawnerTile::getSpawned() const
-{
-	return this->spawned;
 }
 
 const int & EnemySpawnerTile::getEnemyAmount() const
@@ -58,43 +53,34 @@ const int & EnemySpawnerTile::getEnemyCounter() const
 	return this->enemyCounter;
 }
 
-void EnemySpawnerTile::setSpawned(const bool spawned)
+const bool EnemySpawnerTile::getSpawnTimer()
 {
-	this->spawned = spawned;
-	this->enemySpawnTimer.restart();
-}
-
-const bool EnemySpawnerTile::canSpawn() const
-{
-	if (this->enemySpawnTimer.getElapsedTime().asSeconds() >= this->enemyTimeToSpawn)
+	if (this->enemySpawnTimer.getElapsedTime().asSeconds() >= this->enemyTimeToSpawn || this->firstSpawn)
 	{
-
+		this->enemySpawnTimer.restart();
+		this->firstSpawn = false;
 		return true;
 	}
+
 	return false;
 }
 
 void EnemySpawnerTile::increaseEnemyCounter()
 {
-	if (this->enemyCounter > this->enemyAmount)
-		this->enemyCounter = this->enemyAmount;
-	else
+	if (this->enemyCounter < this->enemyAmount)
 		++this->enemyCounter;
 }
 
 void EnemySpawnerTile::decreaseEnemyCounter()
 {
-	if (this->enemyCounter < 0)
-		this->enemyCounter = 0;
-	else
+	if (this->enemyCounter > 0)
 		--this->enemyCounter;
 }
 
 //Functions
 void EnemySpawnerTile::update()
 {
-	if (this->canSpawn())
-		this->spawned = false;
+
 }
 
 void EnemySpawnerTile::render(sf::RenderTarget & target, sf::Shader* shader, const sf::Vector2f player_position)

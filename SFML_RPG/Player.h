@@ -52,7 +52,7 @@ public:
 	void gainEXP(const int exp);
 
 	void updateAnimation(const float& dt);
-	void update(const float& dt, sf::Vector2f& mouse_pos_view);
+	void update(const float& dt, sf::Vector2f& mouse_pos_view, const sf::View& view);
 
 	void render(sf::RenderTarget& target, sf::Shader* shader = NULL, const sf::Vector2f light_position = sf::Vector2f(), const bool show_hitbox = false);
 };
