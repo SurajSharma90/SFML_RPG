@@ -195,6 +195,9 @@
     <ClCompile Include="AIComponent.cpp">
       <Filter>Components</Filter>
     </ClCompile>
+    <ClCompile Include="VectorMath.cpp">
+      <Filter>Resource Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h">
@@ -328,6 +331,9 @@
     </ClInclude>
     <ClInclude Include="AIComponent.h">
       <Filter>Components</Filter>
+    </ClInclude>
+    <ClInclude Include="VectorMath.h">
+      <Filter>Resource Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

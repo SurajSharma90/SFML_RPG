@@ -19,6 +19,11 @@ public:
 	Item(unsigned level, unsigned value);
 	virtual ~Item();
 
+	//Accessors
+	const short unsigned& getType() const { return this->type;}
+	const unsigned& getLevel() const { return this->level;}
+	const unsigned& getValue() const { return this->value;}
+
 	//Function
 	virtual Item* clone() = 0;
 };

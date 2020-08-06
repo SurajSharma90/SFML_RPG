@@ -280,7 +280,7 @@ void GameState::updateCombatAndEnemies(const float & dt)
 		if (enemy->isDead())
 		{
 			this->player->gainEXP(enemy->getGainExp());
-			this->tts->addTextTag(EXPERIENCE_TAG, this->player->getPosition().x - 50.f, this->player->getPosition().y, static_cast<int>(enemy->getGainExp()), "+", "EXP");
+			this->tts->addTextTag(EXPERIENCE_TAG, this->player->getPosition().x - 40.f, this->player->getPosition().y - 30.f, static_cast<int>(enemy->getGainExp()), "+", "EXP");
 
 			this->enemySystem->removeEnemy(index);
 			--index;
@@ -311,7 +311,7 @@ void GameState::updateCombat(Enemy* enemy, const int index, const float & dt)
 	{
 		int dmg = enemy->getAttributeComp()->damageMax;
 		this->player->loseHP(dmg);
-		this->tts->addTextTag(NEGATIVE_TAG, enemy->getPosition().x - 50.f, enemy->getPosition().y, dmg, "-", "HP");
+		this->tts->addTextTag(NEGATIVE_TAG, player->getPosition().x - 30.f, player->getPosition().y, dmg, "-", "HP");
 	}
 }
 

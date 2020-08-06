@@ -70,11 +70,19 @@ Weapon * Player::getWeapon() const
 const std::string Player::toStringCharacterTab() const
 {
 	std::stringstream ss;
-	AttributeComponent* ac = this->attributeComponent;
+	const AttributeComponent* ac = this->attributeComponent;
+	const Weapon* w = this->weapon;
 
 	ss << "Level: " << ac->level << "\n"
 		<< "Exp: " << ac->exp << "\n"
-		<< "Exp next: " << ac->expNext << "\n";
+		<< "Exp next: " << ac->expNext << "\n"
+		
+		<< "Weapon Level: " << w->getLevel() << "\n"
+		<< "Weapon Type: " << w->getType() << "\n"
+		<< "Weapon Value: " << w->getValue() << "\n"
+		<< "Weapon Range: " << w->getRange() << "\n"
+		<< "Weapon Damage Min: " << w->getDamageMin() + this->attributeComponent->damageMin << " (" << this->attributeComponent->damageMin << ")" << "\n"
+		<< "Weapon Damage Max: " << w->getDamageMax() + this->attributeComponent->damageMax << " (" << this->attributeComponent->damageMax << ")" << "\n";
 
 	return ss.str();
 }
