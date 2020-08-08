@@ -38,7 +38,7 @@ Player::Player(float x, float y, sf::Texture& texture_sheet)
 {
 	this->initVariables();
 
-	this->createHitboxComponent(this->sprite, 12.f, 10.f, 40.f, 54.f);
+	this->createHitboxComponent(this->sprite, 16.f, 26.f, 32.f, 38.f);
 	this->createMovementComponent(140.f, 1400.f, 1000.f);
 	this->createAnimationComponent(texture_sheet);
 	this->createAttributeComponent(1);
@@ -173,7 +173,7 @@ void Player::update(const float & dt, sf::Vector2f& mouse_pos_view, const sf::Vi
 	
 	this->hitboxComponent->update();
 
-	this->weapon->update(mouse_pos_view, this->getCenter());
+	this->weapon->update(mouse_pos_view, sf::Vector2f(this->getSpriteCenter().x, this->getSpriteCenter().y + 5.f));
 }
 
 void Player::render(sf::RenderTarget & target, sf::Shader* shader, const sf::Vector2f light_position, const bool show_hitbox)

@@ -247,6 +247,11 @@
     <ClInclude Include="Weapon.h" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Config\editorstate_keybinds.ini" />
+    <None Include="Config\gamestate_keybinds.ini" />
+    <None Include="Config\graphics.ini" />
+    <None Include="Config\mainmenustate_keybinds.ini" />
+    <None Include="Config\supported_keys.ini" />
     <None Include="fragment_shader.frag" />
     <None Include="vertex_shader.vert" />
   </ItemGroup>

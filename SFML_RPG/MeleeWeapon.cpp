@@ -22,7 +22,7 @@ void MeleeWeapon::generate(const unsigned levelMin, const unsigned levelMax)
 	this->damageMin = this->level * (rand() % 2 + 1);
 	this->damageMax = this->level * (rand() % 2 + 1) + this->damageMin;
 
-	this->range = this->level + rand() % 10 + 50;
+	this->range = this->level + rand() % 10 + 70;
 
 	this->value = this->level + this->damageMin + this->damageMax + this->range + (rand() % level * 10);
 

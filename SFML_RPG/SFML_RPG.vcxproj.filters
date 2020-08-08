@@ -64,6 +64,9 @@
     <Filter Include="AI\Options">
       <UniqueIdentifier>{61f5ea60-5992-49d5-bfd5-06e4553cb294}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Config">
+      <UniqueIdentifier>{4897c8e2-53df-4f7d-adc7-c4ab64819a84}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -342,6 +345,21 @@
     </None>
     <None Include="vertex_shader.vert">
       <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Config\editorstate_keybinds.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="Config\gamestate_keybinds.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="Config\graphics.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="Config\mainmenustate_keybinds.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="Config\supported_keys.ini">
+      <Filter>Config</Filter>
     </None>
   </ItemGroup>
   <ItemGroup>
