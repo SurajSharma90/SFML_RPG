@@ -154,6 +154,7 @@
     <ClCompile Include="AIOption.cpp" />
     <ClCompile Include="AnimationComponent.cpp" />
     <ClCompile Include="AttributeComponent.cpp" />
+    <ClCompile Include="Bird1.cpp" />
     <ClCompile Include="Bow.cpp" />
     <ClCompile Include="CharacterTab.cpp" />
     <ClCompile Include="DefaultEditorMode.cpp" />
@@ -205,6 +206,7 @@
     <ClInclude Include="AIOption.h" />
     <ClInclude Include="AnimationComponent.h" />
     <ClInclude Include="AttributeComponent.h" />
+    <ClInclude Include="Bird1.h" />
     <ClInclude Include="Bow.h" />
     <ClInclude Include="CharacterTab.h" />
     <ClInclude Include="DefaultEditorMode.h" />

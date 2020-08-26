@@ -519,7 +519,7 @@ void TileMap::updateTiles(Entity * entity, const float & dt, EnemySystem& enemyS
 					{
 						if (es->getSpawnTimer() && es->getEnemyCounter() < es->getEnemyAmount())
 						{
-							enemySystem.createEnemy(RAT, x*this->gridSizeF, y*this->gridSizeF, *es);
+							enemySystem.createEnemy(es->getEnemyType(), x*this->gridSizeF, y*this->gridSizeF, *es);
 						}	
 					}
 				}

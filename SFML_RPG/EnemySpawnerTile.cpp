@@ -65,6 +65,16 @@ const bool EnemySpawnerTile::getSpawnTimer()
 	return false;
 }
 
+const int& EnemySpawnerTile::getEnemyType() const
+{
+	return this->enemyType;
+}
+
+const float& EnemySpawnerTile::getEnemyMaxDistance() const
+{
+	return this->enemyMaxDistance;
+}
+
 void EnemySpawnerTile::increaseEnemyCounter()
 {
 	if (this->enemyCounter < this->enemyAmount)

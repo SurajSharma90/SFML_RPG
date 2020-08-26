@@ -3,6 +3,7 @@
 
 #include "Entity.h"
 #include "EnemySpawnerTile.h"
+#include "AIFollow.h"
 
 class Enemy :
 	public Entity

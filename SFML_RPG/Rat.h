@@ -2,7 +2,6 @@
 #define RAT_H
 
 #include "Enemy.h"
-#include "AIFollow.h"
 
 class Rat :
 	public Enemy

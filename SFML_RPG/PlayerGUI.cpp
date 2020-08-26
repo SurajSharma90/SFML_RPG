@@ -29,7 +29,6 @@ void PlayerGUI::initEXPBar()
 {
 	this->expBar = new gui::ProgressBar(
 		1.f, 5.6f, 10.4f, 1.9f,
-		this->player->getAttributeComponent()->expNext,
 		sf::Color::Blue, 220,
 		this->vm, &this->font);
 }
@@ -37,8 +36,7 @@ void PlayerGUI::initEXPBar()
 void PlayerGUI::initHPBar()
 {
 	this->hpBar = new gui::ProgressBar(
-		1.f, 8.3f, 10.4f, 2.8f, 
-		this->player->getAttributeComponent()->hpMax,
+		1.f, 8.3f, 10.4f, 2.8f,
 		sf::Color::Red, 180,
 		this->vm, &this->font);
 }
@@ -86,12 +84,12 @@ void PlayerGUI::updateLevelBar()
 
 void PlayerGUI::updateEXPBar()
 {
-	this->expBar->update(this->player->getAttributeComponent()->exp);
+	this->expBar->update(this->player->getAttributeComponent()->exp, this->player->getAttributeComponent()->expNext);
 }
 
 void PlayerGUI::updateHPBar()
 {
-	this->hpBar->update(this->player->getAttributeComponent()->hp);
+	this->hpBar->update(this->player->getAttributeComponent()->hp, this->player->getAttributeComponent()->hpMax);
 }
 
 void PlayerGUI::updatePlayerTabs()
