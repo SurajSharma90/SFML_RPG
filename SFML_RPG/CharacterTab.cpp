@@ -16,7 +16,7 @@ CharacterTab::CharacterTab(sf::VideoMode& vm, sf::Font& font, Player& player)
 	: Tab(vm, font, player, false)
 {
 	//Background
-	this->back.setFillColor(sf::Color(520, 20, 20, 240));
+	this->back.setFillColor(sf::Color(255, 20, 20, 240));
 	this->back.setSize(sf::Vector2f(gui::p2pX(45.f, this->vm), static_cast<float>(this->vm.height)));
 
 	this->initText();
