@@ -16,8 +16,8 @@ public:
 	virtual ~Tab();
 
 	//Accessor
-	const bool& getHidden() const;
-	const bool& getOpen() const;
+	bool getHidden() const;
+	bool getOpen() const;
 	void toggle();
 
 	//Functions
