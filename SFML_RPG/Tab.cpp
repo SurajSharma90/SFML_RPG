@@ -12,14 +12,14 @@ Tab::~Tab()
 
 }
 
-const bool& Tab::getHidden() const
+bool Tab::getHidden() const
 {
 	return this->hidden;
 }
 
-const bool& Tab::getOpen() const
+bool Tab::getOpen() const
 {
-	return (this->hidden == false);
+	return (!this->hidden);
 }
 
 void Tab::toggle()

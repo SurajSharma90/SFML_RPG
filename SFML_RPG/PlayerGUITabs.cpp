@@ -56,18 +56,12 @@ void PlayerGUITabs::toggleTab(const int tab_index)
 
 void PlayerGUITabs::update()
 {
-	for (size_t i = 0; i < this->tabs.size(); i++)
-	{
-		if(this->tabs[i]->getOpen())
-			this->tabs[i]->update();
-	}
+	for (auto tab : this->tabs)
+		tab->update();
 }
 
 void PlayerGUITabs::render(sf::RenderTarget & target)
 {
-	for (size_t i = 0; i < this->tabs.size(); i++)
-	{
-		if (this->tabs[i]->getOpen())
-			this->tabs[i]->render(target);
-	}
+	for (auto tab : this->tabs)
+		tab->render(target);
 }

@@ -18,8 +18,8 @@ protected:
 	sf::Int32 despawnTimerMax;
 
 	//Initializer functions
-	virtual void initVariables() = 0;
-	virtual void initAnimations() = 0;
+	virtual void initVariables();
+	virtual void initAnimations();
 
 public:
 	Enemy(EnemySpawnerTile& enemy_spawner_tile);
